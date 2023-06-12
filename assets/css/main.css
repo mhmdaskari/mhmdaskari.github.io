@@ -1424,7 +1424,7 @@ input, select, textarea {
 		@media screen and (max-width: 980px) {
 
 			#header .content p br {
-				display: none;
+				display:block !important;
 			}
 
 		}
