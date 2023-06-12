@@ -42,7 +42,7 @@
 					<li><a href="#cv">CV</a></li>
 					<li><a href="#research">Research</a></li>
 					<li><a href="#contact">Contact</a></li>
-					<li><a href="#elements">Elements</a></li>
+					<!-- <li><a href="#elements">Elements</a></li> -->
 				</ul>
 			</nav>
 		</header>
@@ -89,7 +89,7 @@
 			<!-- Contact -->
 			<article id="contact">
 				<h2 class="major">Contact</h2>
-				<form id="contact-form" method="post" action="mailto:askari@ucla.edu">
+				<form id="contact-form" method="post" action="https://formsubmit.co/askari@ucla.edu">
 					<div class="fields">
 						<div class="field half">
 							<label for="name">Name</label>
@@ -97,7 +97,7 @@
 						</div>
 						<div class="field half">
 							<label for="email">Email</label>
-							<input type="text" name="email" id="email" required/>
+							<input type="email" name="email" id="email" required/>
 						</div>
 						<div class="field">
 							<label for="message">Message</label>
@@ -108,6 +108,7 @@
 						<li><input type="submit" value="Send Message" class="primary" /></li>
 						<li><input type="reset" value="Reset" /></li>
 					</ul>
+					
 				</form>
 				<ul class="icons">
 					<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
@@ -386,23 +387,6 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 	<script src="assets/js/breakpoints.min.js"></script>
 	<script src="assets/js/util.js"></script>
 	<script src="assets/js/main.js"></script>
-
-	<script >
-		document.getElementById("contact-form").addEventListener("submit", function(event) {
-            event.preventDefault(); // Prevent the form from submitting normally
-            
-            // Display confirmation message
-            var confirmationMsg = document.getElementById("confirmation-msg");
-            confirmationMsg.textContent = "Message sent successfully!";
-            confirmationMsg.classList.add("confirmation");
-            
-            // Clear form inputs
-            document.getElementById("name").value = "";
-            document.getElementById("email").value = "";
-            document.getElementById("message").value = "";
-        });
-
-	</script>
 
 </body>
 
