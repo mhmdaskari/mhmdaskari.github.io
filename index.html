@@ -57,7 +57,8 @@
 				<span class="image main"><img src="images/Me.jpg" alt="Me" /></span>
 				<p>I am a second-year Ph.D. student at UCLA, working on data-driven methods in civil engineering under
 					the supervision
-					of <a href="https://samueli.ucla.edu/people/ertugrul-taciroglu/">Professor Ertugrul Taciroglu</a>.
+					of <a href="https://samueli.ucla.edu/people/ertugrul-taciroglu/" target="_blank"
+					rel="noopener noreferrer">Professor Ertugrul Taciroglu</a>.
 				</p>
 				<p>My goal is to use AI-powered techniques to address real-world problems such as
 					natural disasters and the challenges they put on the community. I am increasingly enthusiastic about
@@ -70,14 +71,11 @@
 				<h2 class="major">CV</h2>
 				<span>
 					<div id="adobe-dc-view" style="width: 100%; height: 500px;"></div>
-					<!-- <iframe src="cv/cv.pdf" width="100%" height="500" alt="CV">
-						<p>Your web browser doesn't have a PDF plugin.
-							Instead you can download the PDF file.</p>
-					</iframe> -->
-					<!-- <embed src="cv/cv.pdf" width="100%" height="500" alt="CV"> -->
 				</span>
+				<br>
 				<ul class="actions">
-					<li><a href="cv/cv.pdf" class="button primary icon solid fa-download">Download CV</a></li>
+					<li><a href="cv/cv.pdf" class="button primary icon solid fa-download" target="_blank"
+						rel="noopener noreferrer">Download CV</a></li>
 				</ul>
 			</article>
 
@@ -113,18 +111,18 @@
 
 				</form>
 				<ul class="icons">
-					<li><a href="mailto:askari@ucla.edu" class="icon solid fa-envelope"><span
-								class="label">Email</span></a></li>
+					<li><a href="mailto:askari@ucla.edu" class="icon solid fa-envelope" target="_blank"
+							rel="noopener noreferrer"><span class="label">Email</span></a></li>
 					<li><a href="https://scholar.google.com/citations?user=VLjov1IAAAAJ&hl=en&authuser=1"
-							class="ai ai-google-scholar-square"><span class="label"></span></a></li>
+							class="ai ai-google-scholar-square" target="_blank" rel="noopener noreferrer"><span
+								class="label"></span></a></li>
 					<li><a href="https://www.researchgate.net/profile/Mohammad-Askari-7"
-							class="ai ai-researchgate-square"><span class="label"></span></a></li>
-					<li><a href="https://www.linkedin.com/in/mhmd-askari/" class="icon brands fa-linkedin"><span
-								class="label">LinkedIn</span></a></li>
-					<!-- <li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-					<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li> -->
-					<li><a href="https://github.com/mhmdaskari/" class="icon brands fa-github"><span
-								class="label">GitHub</span></a></li>
+							class="ai ai-researchgate-square" target="_blank" rel="noopener noreferrer"><span
+								class="label"></span></a></li>
+					<li><a href="https://www.linkedin.com/in/mhmd-askari/" class="icon brands fa-linkedin"
+							target="_blank" rel="noopener noreferrer"><span class="label">LinkedIn</span></a></li>
+					<li><a href="https://github.com/mhmdaskari/" class="icon brands fa-github" target="_blank"
+							rel="noopener noreferrer"><span class="label">GitHub</span></a></li>
 				</ul>
 			</article>
 
@@ -382,10 +380,12 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 
 		<!-- Footer -->
 		<footer id="footer">
-			<p class="copyright">&copy; 2023 MhmdAskari.GitHub.io. Design: <a href="https://html5up.net">HTML5
-					UP</a>.<br>Photo By Alexis Antoine on <a
-					href="https://unsplash.com">Unsplash</a>.<br>
-				Hosted by <a href="https://pages.github.com/">GitHub Pages</a>.
+			<p class="copyright">&copy; 2023 MhmdAskari.GitHub.io. Design: <a href="https://html5up.net" target="_blank"
+					rel="noopener noreferrer">HTML5
+					UP</a>.<br>Photo By Alexis Antoine on <a href="https://unsplash.com" target="_blank"
+					rel="noopener noreferrer">Unsplash</a>.<br>
+				Hosted by <a href="https://pages.github.com/" target="_blank" rel="noopener noreferrer">GitHub
+					Pages</a>.
 			</p>
 		</footer>
 
@@ -400,18 +400,31 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 	<script src="assets/js/breakpoints.min.js"></script>
 	<script src="assets/js/util.js"></script>
 	<script src="assets/js/main.js"></script>
+	<!-- Adobe Embeded PDF -->
 	<script src="https://acrobatservices.adobe.com/view-sdk/viewer.js"></script>
 	<script type="text/javascript">
-		document.addEventListener("adobe_dc_view_sdk.ready", function()
-		{
-			var adobeDCView = new AdobeDC.View({clientId: "f351a815a6c243abae1f25ab0abe15c5", divId: "adobe-dc-view"});
+		document.addEventListener("adobe_dc_view_sdk.ready", function () {
+			var adobeDCView = new AdobeDC.View({ clientId: "f351a815a6c243abae1f25ab0abe15c5", divId: "adobe-dc-view", measurementId: "G-4ED9SCK7FX" });
 			adobeDCView.previewFile(
-		{
-			content:   {location: {url: "https://raw.githubusercontent.com/mhmdaskari/mhmdaskari.github.io/main/cv/cv.pdf"}},
-			metaData: {fileName: "cv.pdf"}
-		},{defaultViewMode: "FIT_WIDTH",
-			showAnnotationTools: false});
+				{
+					content: { location: { url: "https://raw.githubusercontent.com/mhmdaskari/mhmdaskari.github.io/main/cv/cv.pdf" } },
+					metaData: { fileName: "cv.pdf" }
+				}, {
+					defaultViewMode: "FIT_WIDTH",
+				showAnnotationTools: false,
+				showDownloadPDF: false,
+				showPrintPDF:false
+			});
 		});
+	</script>
+	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-4ED9SCK7FX"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() { dataLayer.push(arguments); }
+		gtag('js', new Date());
+
+		gtag('config', 'G-4ED9SCK7FX');
 	</script>
 
 </body>
