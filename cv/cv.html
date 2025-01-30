@@ -1,0 +1,52 @@
+<!-- CV Content - cv.html -->
+<article id="cv">
+    <h2 class="major">CV</h2>
+    
+    <!-- Education -->
+    <h3>Education</h3>
+    <ul>
+        <li><b>UCLA</b> - PhD in Civil and Environmental Engineering (2021-Present), MS in Statistics and Data Science (2023-Present)</li>
+        <div class="read-more">
+            <p>GPA: 4.0/4.0 via 72 passed credits in PhD and 20 credits in MS.</p>
+        </div>
+        <li><b>Sharif University of Tech.</b> - MS in Civil and Environmental Engineering (2017-2020), BS in Civil and Environmental Engineering (2013-2017)</li>
+        <div class="read-more">
+            <p>GPA: 4.0/4.0 via 26 passed credits in MS. Magna cum Laude with a GPA of 3.8/4.0 in BS.</p>
+        </div>
+    </ul>
+    
+    <!-- Links -->
+    <h3>Links</h3>
+    <ul>
+        <li><a href="https://github.com/mhmdaskari/" target="_blank">GitHub</a></li>
+        <li><a href="https://www.linkedin.com/in/mhmd-askari/" target="_blank">LinkedIn</a></li>
+    </ul>
+    
+    <!-- Skills -->
+    <h3>Skills</h3>
+    <ul>
+        <li>Programming: Python, C, C++, Matlab, LaTeX, R</li>
+        <div class="read-more">
+            <p>Over 5000 lines of code written in Python, C, C++, and LaTeX. Experience with Shell scripting and HTML.</p>
+        </div>
+        <li>Frameworks: PyTorch, TensorFlow, Keras, Scikit-learn</li>
+    </ul>
+    
+    <!-- Research Experience -->
+    <h3>Research Experience</h3>
+    <ul>
+        <li><b>UCLA</b>: Machine Learning, Data Analysis, and Software Development</li>
+        <div class="read-more">
+            <p>Worked on deep learning models for damage classification, NLP-based risk assessment, and uncertainty quantification.</p>
+        </div>
+        <li><b>Sharif University</b>: Probabilistic Modelling and Software Development</li>
+    </ul>
+    
+    <!-- More sections remain unchanged -->
+</article>
+
+<script>
+fetch('cv/cv.html')
+    .then(response => response.text())
+    .then(data => document.getElementById("cv").innerHTML = data);
+</script>
