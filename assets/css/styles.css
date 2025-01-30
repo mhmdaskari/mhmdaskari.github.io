@@ -1,0 +1,64 @@
+/* ...existing code... */
+
+.blog-post {
+    border-bottom: 1px solid #ccc;
+    /* padding: 20px 0; */
+    margin-bottom: 10px;
+}
+
+.blog-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.blog-date {
+    font-size: 0.8em;
+    color: #999;
+    margin-bottom: 10pt; /* Remove bottom margin */
+    order: 2; /* Ensure date is on the right */
+}
+
+.blog-title {
+    font-size: 1em;
+    margin-bottom: 10pt; /* Remove vertical margins */
+    order: 1; /* Ensure title is on the left */
+    flex-grow: 1; /* Allow title to take up remaining space */
+}
+
+/* Remove .blog-image styles */
+
+/* .blog-image {
+    border-radius: 4px;
+    border: 0;
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    height: auto;
+    margin: 10px 0;
+}
+
+.blog-image:before {
+    pointer-events: none;
+    background-image: url("../../images/overlay.png");
+    background-color: rgba(19, 21, 25, 0.5);
+    border-radius: 4px;
+    content: '';
+    display: block;
+    height: 100%;
+    left: 0;
+    opacity: 0.5;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+.blog-image img {
+    border-radius: 4px;
+    display: block;
+    width: 100%;
+} */
+
+.blog-text {
+    font-size: 1em;
+}
