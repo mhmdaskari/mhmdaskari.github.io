@@ -76,6 +76,23 @@
 					}
 				}
 			}
+
+			.content, 
+			.read-more,
+			.read-more-link {
+				position: relative;
+				z-index: 2;
+				pointer-events: auto;
+			}
+
+			// Prevent clicks from bubbling up
+			#cv-content {
+				pointer-events: auto;
+				
+				* {
+					pointer-events: auto;
+				}
+			}
 		}
 
 		@include breakpoint('<=small') {
