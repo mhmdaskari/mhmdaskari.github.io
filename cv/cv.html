@@ -1,189 +1,283 @@
 <!-- CV Content - cv.html -->
 
+<!-- Download Button -->
+<ul class="actions">
+    <li><a href="cv/cv.pdf" class="button primary icon solid fa-download" target="_blank" rel="noopener noreferrer">Download PDF</a></li>
+</ul>
+
 <!-- Education -->
 <section>
-<h3>Education</h3>
-<section>
-    <h4>University of California, Los Angeles (UCLA)</h4>
-    <p class="location" style="margin-bottom: 5px;">PhD Candidate in Civil Engineering | Expected Dec 2026 | Los Angeles, CA</p>
-    <p class="location">MSc Candidate in Statistics and Data Science | Expected Dec 2026 | Los Angeles, CA</p>
-</section>
+<h3 class="cv-section-title"><i class="fas fa-graduation-cap"></i> Education</h3>
+<div class="cv-timeline">
+    <div class="cv-timeline-item">
+        <h4>University of California, Los Angeles (UCLA)</h4>
+        <p class="cv-role">PhD Candidate in Civil Engineering</p>
+        <p class="cv-meta">Expected Dec 2026 &bull; Los Angeles, CA</p>
+        <p class="cv-role">MSc Candidate in Statistics and Data Science</p>
+        <p class="cv-meta">Expected Dec 2026 &bull; Los Angeles, CA</p>
+    </div>
+</div>
 </section>
 <hr />
 
 <!-- Technical Experience -->
 <section>
-<h3>Technical Experience</h3>
-<section>
-    <h4>UCLA</h4>
-    <p class="location">Graduate Student Researcher | Sep 2021 - Present | Los Angeles, CA</p>
-    <ul>
-    <li>Employed advanced statistical inference and machine learning methods to implement a Tweedie-XGBoost algorithm to estimate insurance losses for the North Carolina Insurance Underwriting Association (NCIUA).</li>
-    <li>Developed an end-to-end framework for building inventory generation through public data fusion and AI, using ViT-based and foundation models for image classification and segmentation followed by data imputation.</li>
-    <li>Implemented a multi-objective optimization framework to calibrate simulated hurricane wind and flood hazards to ASCE 7 and FEMA targets.</li>
-    <li>Designed and developed a parallelized, object-oriented Python package for regional hurricane risk analysis.</li>
-    <li>Developed transformer-based NLP and ML techniques for PII removal and text classification of damage descriptions for NCIUA.</li>
-    <li>Implemented a GPU-based greedy search algorithm in the OpenCL framework for ground motion selection (<a href="https://github.com/NHR3-UCLA/gmsm_multiple_target_spectra" target="_blank">GitHub</a>).</li>
-    </ul>
-</section>
-<section>
-    <h4>Opal-Ai</h4>
-    <p class="location">Machine Learning Engineer | Oct 2024 - Jan 2025 | Los Angeles, CA</p>
-    <ul>
-    <li><strong>Astro Adjuster Project:</strong> Built an agentic vision-language model pipeline for video understanding using LangChain and Google Cloud Vertex AI to power Astro Adjuster&rsquo;s video-to-report workflow, automatically producing structured claims inspection reports from site-captured video and images (<a href="https://www.opal-ai.com/astro-adjuster" target="_blank">Link</a>).</li>
-    <li>Implemented a retrieval-augmented generation stack for LLM chat over inspection artifacts using LlamaIndex, enabling citation-grounded Q&amp;A on generated reports.</li>
-    <li><strong>NASA SBIR Phase I &amp; II - FireVision / FireGPT:</strong> Co-authored the winning proposal for a multimodal wildfire intelligence system that combines NASA Earth observation and commercial remote-sensing data with VLM and LLM methods to support incident response and prescribed-burn decision support (<a href="https://www.opal-ai.com/post/nasa-awards-opalai-1m-to-transform-wildfire-intelligence-with-multimodal-ai-systems" target="_blank">Link</a>).</li>
-    </ul>
-</section>
+<h3 class="cv-section-title"><i class="fas fa-briefcase"></i> Technical Experience</h3>
+<div class="cv-timeline">
+    <div class="cv-timeline-item">
+        <h4>UCLA <span class="cv-tag">Graduate Student Researcher</span></h4>
+        <p class="cv-meta">Sep 2021 &ndash; Present &bull; Los Angeles, CA</p>
+        <ul>
+        <li>Employed advanced statistical inference and machine learning methods to implement a Tweedie-XGBoost algorithm to estimate insurance losses for the North Carolina Insurance Underwriting Association (NCIUA).</li>
+        <li>Developed an end-to-end framework for building inventory generation through public data fusion and AI, using ViT-based and foundation models for image classification and segmentation followed by data imputation.</li>
+        <li>Implemented a multi-objective optimization framework to calibrate simulated hurricane wind and flood hazards to ASCE 7 and FEMA targets.</li>
+        <li>Designed and developed a parallelized, object-oriented Python package for regional hurricane risk analysis.</li>
+        <li>Developed transformer-based NLP and ML techniques for PII removal and text classification of damage descriptions for NCIUA.</li>
+        <li>Implemented a GPU-based greedy search algorithm in the OpenCL framework for ground motion selection (<a href="https://github.com/NHR3-UCLA/gmsm_multiple_target_spectra" target="_blank">GitHub</a>).</li>
+        </ul>
+    </div>
+    <div class="cv-timeline-item">
+        <h4>Opal-AI <span class="cv-tag">Machine Learning Engineer</span></h4>
+        <p class="cv-meta">Oct 2024 &ndash; Jan 2025 &bull; Los Angeles, CA</p>
+        <ul>
+        <li><strong>Astro Adjuster Project:</strong> Built an agentic vision-language model pipeline for video understanding using LangChain and Google Cloud Vertex AI to power Astro Adjuster&rsquo;s video-to-report workflow, automatically producing structured claims inspection reports from site-captured video and images (<a href="https://www.opal-ai.com/astro-adjuster" target="_blank">Link</a>).</li>
+        <li>Implemented a retrieval-augmented generation stack for LLM chat over inspection artifacts using LlamaIndex, enabling citation-grounded Q&amp;A on generated reports.</li>
+        <li><strong>NASA SBIR Phase I &amp; II &ndash; FireVision / FireGPT:</strong> Co-authored the winning proposal for a multimodal wildfire intelligence system that combines NASA Earth observation and commercial remote-sensing data with VLM and LLM methods to support incident response and prescribed-burn decision support (<a href="https://www.opal-ai.com/post/nasa-awards-opalai-1m-to-transform-wildfire-intelligence-with-multimodal-ai-systems" target="_blank">Link</a>).</li>
+        </ul>
+    </div>
+</div>
 </section>
 <hr />
 
 <!-- Course Projects -->
 <section>
-<h3>Course Projects (Selected)</h3>
-<section>
-    <h4>Graduate-level</h4>
-    <ul>
-    <li>Built an efficient ML pipeline that optimizes XGBoost hyperparameters via experimental design techniques, outperforming grid search in predicting wildfire damage to buildings. --- Advisor: Professor Hongquan Xu</li>
-    <li>Implemented Deep Q-learning with experience replay (DQN) and Deep Deterministic Policy Gradient (DDPG) reinforcement learning algorithms for Racing Car and Double Pendulum problems. --- Advisor: Professor Jonathan Kao</li>
-    <li>Evaluated the performance of CRNN, LSTM, conditional GAN, and CNN models on time-series data using TensorFlow, highlighting robust deep learning methods for signal processing. --- Advisor: Professor Jonathan Kao (<a href="https://github.com/mhmdaskari/EEG_DL_Classification" target="_blank">GitHub</a>)</li>
-    <li>A tutorial on doubly robust targeted maximum likelihood estimation (TMLE) and its implementation in R, merging causal inference with ML principles for improved estimation. --- Advisor: Professor Chad Hazlett</li>
-    </ul>
-</section>
+<h3 class="cv-section-title"><i class="fas fa-flask"></i> Course Projects (Selected)</h3>
+<div class="cv-timeline">
+    <div class="cv-timeline-item">
+        <h4>Graduate-level</h4>
+        <ul>
+        <li>Built an efficient ML pipeline that optimizes XGBoost hyperparameters via experimental design techniques, outperforming grid search in predicting wildfire damage to buildings. <span class="cv-advisor">Advisor: Prof. Hongquan Xu</span></li>
+        <li>Implemented Deep Q-learning with experience replay (DQN) and Deep Deterministic Policy Gradient (DDPG) reinforcement learning algorithms for Racing Car and Double Pendulum problems. <span class="cv-advisor">Advisor: Prof. Jonathan Kao</span></li>
+        <li>Evaluated the performance of CRNN, LSTM, conditional GAN, and CNN models on time-series data using TensorFlow, highlighting robust deep learning methods for signal processing. <span class="cv-advisor">Advisor: Prof. Jonathan Kao</span> (<a href="https://github.com/mhmdaskari/EEG_DL_Classification" target="_blank">GitHub</a>)</li>
+        <li>A tutorial on doubly robust targeted maximum likelihood estimation (TMLE) and its implementation in R, merging causal inference with ML principles for improved estimation. <span class="cv-advisor">Advisor: Prof. Chad Hazlett</span></li>
+        </ul>
+    </div>
+</div>
 </section>
 <hr />
 
 <!-- Technical Skills -->
 <section>
-<h3>Technical Skills</h3>
-<p class="location"><strong>Programming Languages:</strong> Python, R, C++</p>
-<p class="location"><strong>ML &amp; DL Frameworks:</strong> PyTorch, JAX, TensorFlow, Keras, Scikit-learn, Transformers, LangChain, spaCy</p>
-<p class="location"><strong>Software Development Tools &amp; External:</strong> Version Control (Git), GitHub, CI/CD, SQL, Bash, MATLAB, Docker</p>
+<h3 class="cv-section-title"><i class="fas fa-code"></i> Technical Skills</h3>
+<div class="cv-skills">
+    <div class="cv-skill-group">
+        <span class="cv-skill-label">Languages</span>
+        <span class="cv-badge">Python</span>
+        <span class="cv-badge">R</span>
+        <span class="cv-badge">C++</span>
+    </div>
+    <div class="cv-skill-group">
+        <span class="cv-skill-label">ML &amp; DL</span>
+        <span class="cv-badge">PyTorch</span>
+        <span class="cv-badge">JAX</span>
+        <span class="cv-badge">TensorFlow</span>
+        <span class="cv-badge">Keras</span>
+        <span class="cv-badge">Scikit-learn</span>
+        <span class="cv-badge">Transformers</span>
+        <span class="cv-badge">LangChain</span>
+        <span class="cv-badge">spaCy</span>
+    </div>
+    <div class="cv-skill-group">
+        <span class="cv-skill-label">Tools</span>
+        <span class="cv-badge">Git</span>
+        <span class="cv-badge">GitHub</span>
+        <span class="cv-badge">CI/CD</span>
+        <span class="cv-badge">SQL</span>
+        <span class="cv-badge">Bash</span>
+        <span class="cv-badge">MATLAB</span>
+        <span class="cv-badge">Docker</span>
+    </div>
+</div>
 </section>
 <hr />
 
 <!-- Publications -->
 <section>
-<h3>Publications</h3>
-<ul>
-    <li>Tackie-Otoo, Nii Otu, Askari, Mohammad, Hadinata, Patrick, Davidson, Rachel A., Taciroglu, Ertugrul, and Hardy, Gina (2026). Hurricane wind loss modeling using insurance claims data. <em>Natural Hazards</em>, 122(7), 300. DOI: <a href="https://doi.org/10.1007/s11069-026-08059-z" target="_blank">10.1007/s11069-026-08059-z</a></li>
-    <li>Askari, Mohammad, Soleimani-Babakamali, Mohammad Hesam, Williams, Caroline, Davidson, Racheal, and Taciroglu, Ertugrul (2026). CHEERSafe: A Python Library to Assess Hurricane Damage and Loss. <em>Environmental Modelling &amp; Software</em> (manuscript in preparation).</li>
-    <li>Soleimani-Babakamali, Mohammad Hesam, Askari, Mohammad, Heravi, Mohammad Ali, Sisman, Rafet, Attarchian, Nahid, Askan, Aysegul, Soleimani, Rojiar, and Taciroglu, Ertugrul (2025). Deep Ensemble Learning for Rapid Large-Scale Postearthquake Damage Assessment: Application to Satellite Images from the 2023 Turkiye Earthquakes. <em>ASCE OPEN: Multidisciplinary Journal of Civil Engineering</em>, 3(1), 04025003. DOI: <a href="https://doi.org/10.1061/AOMJAH.AOENG-0043" target="_blank">10.1061/AOMJAH.AOENG-0043</a></li>
-    <li>Chen, Shi-Zhi, Wang, Xiang-Yu, Ma, Xin-Rui, Wang, Tao, Askari, Mohammad, and Taciroglu, Ertugrul (2025). Transforming Regression to Classification for Enhancing Extrapolation Capacity of Data-driven Structural Behavior Prediction. <em>Expert Systems with Applications</em>, 277, 127302. DOI: <a href="https://doi.org/10.1016/j.eswa.2025.127302" target="_blank">10.1016/j.eswa.2025.127302</a></li>
-    <li>Soleimani-Babakamali, Roksana, Soleimani-Babakamali, Mohammad Hesam, Heravi, Mohammad Ali, Askari, Mohammad, Avci, Onur, and Taciroglu, Ertugrul (2024). Transferring Damage Detection Knowledge Across Rotating Machines and Framed Structures: Harnessing Domain Adaptation and Contrastive Learning. <em>Mechanical Systems and Signal Processing</em>, 221, 111743. DOI: <a href="https://doi.org/10.1016/j.ymssp.2024.111743" target="_blank">10.1016/j.ymssp.2024.111743</a></li>
-    <li>Askari, Mohammad and Mahsuli, Mojtaba (2025). Treatment of Epistemic Uncertainty in Probabilistic Seismic Hazard Analysis through Reliability Methods. <em>Earthquake Spectra</em> (under review).</li>
-    <li>Shokrabadi, Mehrdad, Bozorgnia, Yousef, Burton, Henry V., Baker, Jack W., and Askari, Mohammad (2022). An Efficient Computational Platform for Selecting and Scaling Ground Motion Records while Considering Multiple Target Spectra. University of California, Los Angeles. DOI: <a href="https://doi.org/10.34948/N3K01N" target="_blank">10.34948/N3K01N</a></li>
-    <li>Askari, Mohammad and Mahsuli, M. (2020). Modeling of Epistemic Uncertainties in Seismic Hazard Analysis Based on Reliability Methods. Center for Infrastructure Sustainability and Resilience Research, Sharif University of Tech.</li>
-</ul>
+<h3 class="cv-section-title"><i class="fas fa-book-open"></i> Publications</h3>
+<ol class="cv-pub-list">
+    <li class="cv-pub">
+        <p class="cv-pub-title">Hurricane wind loss modeling using insurance claims data</p>
+        <p class="cv-pub-authors">Tackie-Otoo, N.O., <strong>Askari, M.</strong>, Hadinata, P., Davidson, R.A., Taciroglu, E., and Hardy, G. (2026)</p>
+        <p class="cv-pub-venue"><em>Natural Hazards</em>, 122(7), 300</p>
+        <a class="cv-pub-doi" href="https://doi.org/10.1007/s11069-026-08059-z" target="_blank">DOI: 10.1007/s11069-026-08059-z</a>
+    </li>
+    <li class="cv-pub">
+        <p class="cv-pub-title">CHEERSafe: A Python Library to Assess Hurricane Damage and Loss</p>
+        <p class="cv-pub-authors"><strong>Askari, M.</strong>, Soleimani-Babakamali, M.H., Williams, C., Davidson, R., and Taciroglu, E. (2026)</p>
+        <p class="cv-pub-venue"><em>Environmental Modelling &amp; Software</em> <span class="cv-pub-status">manuscript in preparation</span></p>
+    </li>
+    <li class="cv-pub">
+        <p class="cv-pub-title">Deep Ensemble Learning for Rapid Large-Scale Postearthquake Damage Assessment: Application to Satellite Images from the 2023 Turkiye Earthquakes</p>
+        <p class="cv-pub-authors">Soleimani-Babakamali, M.H., <strong>Askari, M.</strong>, Heravi, M.A., Sisman, R., Attarchian, N., Askan, A., Soleimani, R., and Taciroglu, E. (2025)</p>
+        <p class="cv-pub-venue"><em>ASCE OPEN: Multidisciplinary Journal of Civil Engineering</em>, 3(1), 04025003</p>
+        <a class="cv-pub-doi" href="https://doi.org/10.1061/AOMJAH.AOENG-0043" target="_blank">DOI: 10.1061/AOMJAH.AOENG-0043</a>
+    </li>
+    <li class="cv-pub">
+        <p class="cv-pub-title">Transforming Regression to Classification for Enhancing Extrapolation Capacity of Data-driven Structural Behavior Prediction</p>
+        <p class="cv-pub-authors">Chen, S., Wang, X., Ma, X., Wang, T., <strong>Askari, M.</strong>, and Taciroglu, E. (2025)</p>
+        <p class="cv-pub-venue"><em>Expert Systems with Applications</em>, 277, 127302</p>
+        <a class="cv-pub-doi" href="https://doi.org/10.1016/j.eswa.2025.127302" target="_blank">DOI: 10.1016/j.eswa.2025.127302</a>
+    </li>
+    <li class="cv-pub">
+        <p class="cv-pub-title">Transferring Damage Detection Knowledge Across Rotating Machines and Framed Structures: Harnessing Domain Adaptation and Contrastive Learning</p>
+        <p class="cv-pub-authors">Soleimani-Babakamali, R., Soleimani-Babakamali, M.H., Heravi, M.A., <strong>Askari, M.</strong>, Avci, O., and Taciroglu, E. (2024)</p>
+        <p class="cv-pub-venue"><em>Mechanical Systems and Signal Processing</em>, 221, 111743</p>
+        <a class="cv-pub-doi" href="https://doi.org/10.1016/j.ymssp.2024.111743" target="_blank">DOI: 10.1016/j.ymssp.2024.111743</a>
+    </li>
+    <li class="cv-pub">
+        <p class="cv-pub-title">Treatment of Epistemic Uncertainty in Probabilistic Seismic Hazard Analysis through Reliability Methods</p>
+        <p class="cv-pub-authors"><strong>Askari, M.</strong> and Mahsuli, M. (2025)</p>
+        <p class="cv-pub-venue"><em>Earthquake Spectra</em> <span class="cv-pub-status">under review</span></p>
+    </li>
+    <li class="cv-pub">
+        <p class="cv-pub-title">An Efficient Computational Platform for Selecting and Scaling Ground Motion Records while Considering Multiple Target Spectra</p>
+        <p class="cv-pub-authors">Shokrabadi, M., Bozorgnia, Y., Burton, H.V., Baker, J.W., and <strong>Askari, M.</strong> (2022)</p>
+        <p class="cv-pub-venue">University of California, Los Angeles</p>
+        <a class="cv-pub-doi" href="https://doi.org/10.34948/N3K01N" target="_blank">DOI: 10.34948/N3K01N</a>
+    </li>
+    <li class="cv-pub">
+        <p class="cv-pub-title">Modeling of Epistemic Uncertainties in Seismic Hazard Analysis Based on Reliability Methods</p>
+        <p class="cv-pub-authors"><strong>Askari, M.</strong> and Mahsuli, M. (2020)</p>
+        <p class="cv-pub-venue">Center for Infrastructure Sustainability and Resilience Research, Sharif University of Tech.</p>
+    </li>
+</ol>
 </section>
 <hr />
 
 <!-- Presentations -->
 <section>
-<h3>Presentations</h3>
-<div class="table-wrapper">
-    <table>
-    <tbody>
-        <tr>
-        <td>May 2025</td>
-        <td>EMI Conference</td>
-        <td>CHEERSafe: A Modular Object-Oriented Framework for Regional Hurricane Risk Assessment</td>
-        </tr>
-        <tr>
-        <td>May 2024</td>
-        <td>PMC/EMI Conference</td>
-        <td>An End-To-End Framework for Building Inventory Generation Through Public Data Fusion and Artificial Intelligence</td>
-        </tr>
-        <tr>
-        <td>Feb 2024</td>
-        <td>NHERI Computational Symposium</td>
-        <td>Deep Ensemble Learning for Rapid Large-Scale Post-Earthquake Damage Assessment---Application to 2023 Turkiye Earthquakes Satellite Images (poster)</td>
-        </tr>
-        <tr>
-        <td>Feb 2022</td>
-        <td>ASCE Lifelines Conference</td>
-        <td>An Efficient Computational Platform for Selecting and Scaling Ground Motion Records while Considering Multiple Target Spectra (poster)</td>
-        </tr>
-    </tbody>
-    </table>
+<h3 class="cv-section-title"><i class="fas fa-chalkboard-teacher"></i> Presentations</h3>
+<div class="cv-rows">
+    <div class="cv-row-item">
+        <span class="cv-row-date">May 2025</span>
+        <div class="cv-row-body">
+            <span class="cv-row-venue">EMI Conference</span>
+            <p>CHEERSafe: A Modular Object-Oriented Framework for Regional Hurricane Risk Assessment</p>
+        </div>
+    </div>
+    <div class="cv-row-item">
+        <span class="cv-row-date">May 2024</span>
+        <div class="cv-row-body">
+            <span class="cv-row-venue">PMC/EMI Conference</span>
+            <p>An End-To-End Framework for Building Inventory Generation Through Public Data Fusion and Artificial Intelligence</p>
+        </div>
+    </div>
+    <div class="cv-row-item">
+        <span class="cv-row-date">Feb 2024</span>
+        <div class="cv-row-body">
+            <span class="cv-row-venue">NHERI Computational Symposium</span>
+            <p>Deep Ensemble Learning for Rapid Large-Scale Post-Earthquake Damage Assessment &mdash; Application to 2023 Turkiye Earthquakes Satellite Images <em>(poster)</em></p>
+        </div>
+    </div>
+    <div class="cv-row-item">
+        <span class="cv-row-date">Feb 2022</span>
+        <div class="cv-row-body">
+            <span class="cv-row-venue">ASCE Lifelines Conference</span>
+            <p>An Efficient Computational Platform for Selecting and Scaling Ground Motion Records while Considering Multiple Target Spectra <em>(poster)</em></p>
+        </div>
+    </div>
 </div>
 </section>
 <hr />
 
 <!-- Certifications -->
 <section>
-<h3>Certifications</h3>
-<div class="table-wrapper">
-    <table>
-    <tbody>
-        <tr>
-        <td>Jul 2024</td>
-        <td>TACC</td>
-        <td>AI Computational Academy &amp; Hackathon</td>
-        </tr>
-        <tr>
-        <td>Jan 2024</td>
-        <td>Coursera</td>
-        <td>AI for Good Specialization <a href="https://www.coursera.org/account/accomplishments/specialization/463659LDNXLQ" target="_blank">[Link]</a></td>
-        </tr>
-        <tr>
-        <td>Nov 2023</td>
-        <td>NVIDIA</td>
-        <td>Building Transformer-Based NLP Applications <a href="https://courses.nvidia.com/certificates/de3c9d8496d648a5912f4bff8cd24055/" target="_blank">[Link]</a></td>
-        </tr>
-        <tr>
-        <td>May 2023</td>
-        <td>Coursera</td>
-        <td>Deep Learning Specialization <a href="https://www.coursera.org/account/accomplishments/specialization/certificate/M5VGLVVN37RS" target="_blank">[Link]</a></td>
-        </tr>
-        <tr>
-        <td>Feb 2021</td>
-        <td>Coursera</td>
-        <td>Machine Learning <a href="https://www.coursera.org/account/accomplishments/certificate/AZWMEMTYP4XR" target="_blank">[Link]</a></td>
-        </tr>
-    </tbody>
-    </table>
+<h3 class="cv-section-title"><i class="fas fa-certificate"></i> Certifications</h3>
+<div class="cv-rows">
+    <div class="cv-row-item">
+        <span class="cv-row-date">Jul 2024</span>
+        <div class="cv-row-body">
+            <span class="cv-row-venue">TACC</span>
+            <p>AI Computational Academy &amp; Hackathon</p>
+        </div>
+    </div>
+    <div class="cv-row-item">
+        <span class="cv-row-date">Jan 2024</span>
+        <div class="cv-row-body">
+            <span class="cv-row-venue">Coursera</span>
+            <p>AI for Good Specialization &nbsp;<a href="https://www.coursera.org/account/accomplishments/specialization/463659LDNXLQ" target="_blank">[Link]</a></p>
+        </div>
+    </div>
+    <div class="cv-row-item">
+        <span class="cv-row-date">Nov 2023</span>
+        <div class="cv-row-body">
+            <span class="cv-row-venue">NVIDIA</span>
+            <p>Building Transformer-Based NLP Applications &nbsp;<a href="https://courses.nvidia.com/certificates/de3c9d8496d648a5912f4bff8cd24055/" target="_blank">[Link]</a></p>
+        </div>
+    </div>
+    <div class="cv-row-item">
+        <span class="cv-row-date">May 2023</span>
+        <div class="cv-row-body">
+            <span class="cv-row-venue">Coursera</span>
+            <p>Deep Learning Specialization &nbsp;<a href="https://www.coursera.org/account/accomplishments/specialization/certificate/M5VGLVVN37RS" target="_blank">[Link]</a></p>
+        </div>
+    </div>
+    <div class="cv-row-item">
+        <span class="cv-row-date">Feb 2021</span>
+        <div class="cv-row-body">
+            <span class="cv-row-venue">Coursera</span>
+            <p>Machine Learning &nbsp;<a href="https://www.coursera.org/account/accomplishments/certificate/AZWMEMTYP4XR" target="_blank">[Link]</a></p>
+        </div>
+    </div>
 </div>
 </section>
 <hr />
 
 <!-- Community Engagement & Volunteer Experience -->
 <section>
-<h3>Community Engagement &amp; Volunteer Experience</h3>
-<div class="table-wrapper">
-    <table>
-    <tbody>
-        <tr>
-        <td>Sep 2024 - Present</td>
-        <td>Elsevier Engineering Structures</td>
-        <td>Journal article reviewer related to ML and AI applications</td>
-        </tr>
-        <tr>
-        <td>Sep 2024 - Present</td>
-        <td>ASCE Open</td>
-        <td>Journal article reviewer related to ML and AI applications</td>
-        </tr>
-        <tr>
-        <td>Sep 2024 - Present</td>
-        <td>ASCE I3CE</td>
-        <td>Journal article reviewer related to ML and AI applications</td>
-        </tr>
-        <tr>
-        <td>Apr 2024</td>
-        <td>LA Hacks</td>
-        <td>Expert judgment for the Los Angeles AI Hackathon event</td>
-        </tr>
-        <tr>
-        <td>Feb 2024 - Present</td>
-        <td>NSF</td>
-        <td>Code and documentation management of the CoPe-CHEER NSF project</td>
-        </tr>
-        <tr>
-        <td>Sep 2022 - Jul 2023</td>
-        <td>UCLA</td>
-        <td>Board member of the Iranian Graduate and Professional Association, IGPA</td>
-        </tr>
-    </tbody>
-    </table>
+<h3 class="cv-section-title"><i class="fas fa-hands-helping"></i> Community Engagement &amp; Volunteer Experience</h3>
+<div class="cv-rows">
+    <div class="cv-row-item">
+        <span class="cv-row-date">Sep 2024 &ndash; Present</span>
+        <div class="cv-row-body">
+            <span class="cv-row-venue">Elsevier Engineering Structures</span>
+            <p>Journal article reviewer related to ML and AI applications</p>
+        </div>
+    </div>
+    <div class="cv-row-item">
+        <span class="cv-row-date">Sep 2024 &ndash; Present</span>
+        <div class="cv-row-body">
+            <span class="cv-row-venue">ASCE Open</span>
+            <p>Journal article reviewer related to ML and AI applications</p>
+        </div>
+    </div>
+    <div class="cv-row-item">
+        <span class="cv-row-date">Sep 2024 &ndash; Present</span>
+        <div class="cv-row-body">
+            <span class="cv-row-venue">ASCE I3CE</span>
+            <p>Journal article reviewer related to ML and AI applications</p>
+        </div>
+    </div>
+    <div class="cv-row-item">
+        <span class="cv-row-date">Apr 2024</span>
+        <div class="cv-row-body">
+            <span class="cv-row-venue">LA Hacks</span>
+            <p>Expert judgment for the Los Angeles AI Hackathon event</p>
+        </div>
+    </div>
+    <div class="cv-row-item">
+        <span class="cv-row-date">Feb 2024 &ndash; Present</span>
+        <div class="cv-row-body">
+            <span class="cv-row-venue">NSF</span>
+            <p>Code and documentation management of the CoPe-CHEER NSF project</p>
+        </div>
+    </div>
+    <div class="cv-row-item">
+        <span class="cv-row-date">Sep 2022 &ndash; Jul 2023</span>
+        <div class="cv-row-body">
+            <span class="cv-row-venue">UCLA</span>
+            <p>Board member of the Iranian Graduate and Professional Association, IGPA</p>
+        </div>
+    </div>
 </div>
 </section>
