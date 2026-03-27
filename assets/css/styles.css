@@ -10,6 +10,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
+    gap: 0.25rem;
 }
 
 .blog-date {
@@ -17,6 +19,7 @@
     color: #999;
     margin-bottom: 10pt; /* Remove bottom margin */
     order: 2; /* Ensure date is on the right */
+    white-space: nowrap;
 }
 
 .blog-title {
@@ -24,6 +27,22 @@
     margin-bottom: 10pt; /* Remove vertical margins */
     order: 1; /* Ensure title is on the left */
     flex-grow: 1; /* Allow title to take up remaining space */
+}
+
+@media screen and (max-width: 480px) {
+    .blog-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .blog-date {
+        order: 0;
+        margin-bottom: 0;
+    }
+
+    .blog-title {
+        margin-bottom: 5pt;
+    }
 }
 
 /* Remove .blog-image styles */
@@ -61,4 +80,257 @@
 
 .blog-text {
     font-size: 1em;
+}
+
+/* CV content base */
+#cv-content {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+}
+
+#cv-content ul li,
+#cv-content p {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+}
+
+/* Section titles with icons */
+.cv-section-title {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.cv-section-title i {
+    opacity: 0.65;
+    font-size: 0.85em;
+}
+
+/* Timeline */
+.cv-timeline {
+    position: relative;
+    padding-left: 1.5rem;
+    border-left: 2px solid rgba(255, 255, 255, 0.2);
+    margin-top: 0.75rem;
+}
+
+.cv-timeline-item {
+    position: relative;
+    margin-bottom: 1.75rem;
+}
+
+.cv-timeline-item:last-child {
+    margin-bottom: 0;
+}
+
+.cv-timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -1.88rem;
+    top: 0.38rem;
+    width: 0.72rem;
+    height: 0.72rem;
+    border-radius: 50%;
+    background: #ffffff;
+    border: 2px solid #1b1f22;
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.3);
+}
+
+.cv-timeline-item h4 {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 0.2rem;
+}
+
+/* Role/title tag next to employer name */
+.cv-tag {
+    font-size: 0.62em;
+    font-weight: 300;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 3px;
+    padding: 0.1rem 0.5rem;
+    letter-spacing: 0.04rem;
+    text-transform: none;
+    vertical-align: middle;
+}
+
+.cv-role {
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 0.1rem;
+    font-size: 0.9em;
+}
+
+.cv-meta {
+    font-size: 0.8em;
+    opacity: 0.55;
+    margin-bottom: 0.75rem;
+}
+
+/* Advisor badge in course projects */
+.cv-advisor {
+    display: inline-block;
+    font-size: 0.8em;
+    opacity: 0.6;
+    margin-left: 0.35rem;
+    font-style: italic;
+}
+
+/* Skills */
+.cv-skills {
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+    margin-top: 0.5rem;
+}
+
+.cv-skill-group {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+}
+
+.cv-skill-label {
+    font-size: 0.72em;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08rem;
+    opacity: 0.55;
+    min-width: 5.5rem;
+    flex-shrink: 0;
+}
+
+.cv-badge {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 3px;
+    padding: 0.12rem 0.55rem;
+    font-size: 0.75em;
+    letter-spacing: 0.02rem;
+    white-space: nowrap;
+}
+
+/* Publications */
+.cv-pub-list {
+    list-style: decimal;
+    padding-left: 1.5rem;
+    margin: 0.5rem 0 0 0;
+}
+
+.cv-pub {
+    margin-bottom: 1.1rem;
+    padding: 0.5rem 0 0.5rem 0.75rem;
+    border-left: 2px solid rgba(255, 255, 255, 0.15);
+}
+
+.cv-pub-title {
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 0.2rem;
+    font-size: 0.9em;
+    line-height: 1.4;
+}
+
+.cv-pub-authors {
+    font-size: 0.8em;
+    opacity: 0.7;
+    margin-bottom: 0.15rem;
+}
+
+.cv-pub-venue {
+    font-size: 0.8em;
+    opacity: 0.7;
+    margin-bottom: 0.2rem;
+}
+
+.cv-pub-doi {
+    font-size: 0.75em;
+    opacity: 0.55;
+    border-bottom: none;
+}
+
+.cv-pub-doi:hover {
+    opacity: 1;
+}
+
+.cv-pub-status {
+    display: inline-block;
+    font-size: 0.8em;
+    padding: 0.05rem 0.4rem;
+    border-radius: 3px;
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    margin-left: 0.4rem;
+    vertical-align: middle;
+    font-style: normal;
+    opacity: 1;
+}
+
+/* Row layout for presentations / certifications / community */
+.cv-rows {
+    display: flex;
+    flex-direction: column;
+    margin-top: 0.5rem;
+}
+
+.cv-row-item {
+    display: flex;
+    gap: 1rem;
+    padding: 0.6rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    align-items: flex-start;
+}
+
+.cv-row-item:last-child {
+    border-bottom: none;
+}
+
+.cv-row-date {
+    font-size: 0.75em;
+    opacity: 0.55;
+    white-space: nowrap;
+    min-width: 5.75rem;
+    padding-top: 0.1rem;
+    flex-shrink: 0;
+}
+
+.cv-row-body {
+    flex: 1;
+}
+
+.cv-row-venue {
+    font-weight: 600;
+    font-size: 0.85em;
+    display: block;
+    margin-bottom: 0.15rem;
+}
+
+.cv-row-body p {
+    font-size: 0.85em;
+    opacity: 0.75;
+    margin: 0;
+}
+
+@media screen and (max-width: 480px) {
+    .cv-row-item {
+        flex-direction: column;
+        gap: 0.2rem;
+    }
+
+    .cv-skill-label {
+        min-width: 100%;
+    }
+
+    .cv-timeline {
+        padding-left: 1.1rem;
+    }
+
+    .cv-timeline-item::before {
+        left: -1.48rem;
+    }
 }
