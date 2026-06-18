@@ -1,0 +1,94 @@
+/* ============================================================
+   Design Tokens — SOURCE OF TRUTH for this site.
+
+   These native CSS custom properties mirror the original
+   assets/sass/libs/_vars.scss values, which are now legacy /
+   reference only (the SCSS is no longer compiled). Edit design
+   values HERE; this file is loaded BEFORE main.css on every page.
+
+   Naming: --{category}-{name}-{modifier}, kebab-case.
+   Categories: color, opacity, font, text, space, size,
+   radius, border, duration, z.
+   ============================================================ */
+:root {
+
+	/* --- Color: backgrounds --- */
+	--color-bg:            #1b1f22;
+	--color-bg-alt:        #000000;
+	--color-bg-overlay:    rgba(19, 21, 25, 0.5);
+
+	/* --- Color: foreground / text --- */
+	--color-fg:            #ffffff;
+	--color-fg-bold:       #ffffff;
+	--color-fg-light:      rgba(255, 255, 255, 0.5);
+
+	/* --- Color: borders --- */
+	--color-border:        #ffffff;
+	--color-border-bg:     rgba(255, 255, 255, 0.075);
+	--color-border-bg-alt: rgba(255, 255, 255, 0.175);
+
+	/* --- Color: custom-component surfaces & lines (consolidated from styles.css) --- */
+	--color-surface-1:     rgba(255, 255, 255, 0.07);  /* badges */
+	--color-surface-2:     rgba(255, 255, 255, 0.08);  /* tag background */
+	--color-line-subtle:   rgba(255, 255, 255, 0.08);  /* row divider */
+	--color-line-soft:     rgba(255, 255, 255, 0.15);  /* publication border, status */
+	--color-line-muted:    rgba(255, 255, 255, 0.18);  /* badge border */
+	--color-line-timeline: rgba(255, 255, 255, 0.2);   /* timeline rail, tag border */
+	--color-line-blog:     #ccc;     /* OFF-PALETTE: blog divider (see README) */
+	--color-fg-faint:      #999;     /* OFF-PALETTE: blog date (see README) */
+
+	/* --- Opacity steps (de-duplicated from styles.css) --- */
+	--opacity-muted:  0.55;
+	--opacity-soft:   0.65;
+	--opacity-medium: 0.7;
+	--opacity-strong: 0.75;
+
+	/* --- Typography --- */
+	--font-family:       'Source Sans Pro', sans-serif;
+	--font-family-fixed: 'Courier New', monospace;
+	--font-weight:       300;
+	--font-weight-bold:  600;
+	--letter-spacing:         0.2rem;
+	--letter-spacing-heading: 0.5rem;
+	--line-height:         1.65;
+	--line-height-heading: 1.5;
+
+	/* --- Type scale --- */
+	--text-h1: 2.25rem;
+	--text-h2: 1.5rem;
+	--text-h3: 1.25rem;
+	--text-h4: 1.05rem;
+	--text-h5: 0.85rem;
+	--text-h6: 0.7rem;
+
+	/* --- Spacing / sizing --- */
+	--space-element:       2rem;     /* element-margin */
+	--size-element-height: 2.75rem;
+
+	/* --- Borders & radius --- */
+	--radius:       4px;
+	--radius-small: 3px;     /* custom components */
+	--border-width: 1px;
+
+	/* --- Motion --- */
+	--duration-transition: 0.2s;
+	--duration-bg:         2.5s;
+	--duration-intro:      0.75s;
+	--duration-article:    0.325s;
+
+	/* --- Layering --- */
+	--z-base: 10000;
+
+	/* --- Breakpoints — REFERENCE ONLY ---
+	   CSS custom properties cannot be used inside @media queries
+	   without a build step, so these are documented here only.
+	   The existing @media literals in main.css / styles.css use
+	   these same values:
+	     xlarge  <= 1680px
+	     large   <= 1280px
+	     medium  <=  980px
+	     small   <=  736px
+	     xsmall  <=  480px
+	     xxsmall <=  360px
+	*/
+}
