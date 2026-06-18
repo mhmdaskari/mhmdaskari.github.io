@@ -1,14 +1,20 @@
-/* Open article scrollbar appears only while the panel is hovered or focused. */
+/* Open article scrollbar appears only while the panel is hovered. */
 #main article {
+    scrollbar-width: none;
     scrollbar-color: transparent transparent;
 }
 
-#main article:hover,
-#main article:focus-within {
+#main article:hover {
+    scrollbar-width: thin;
     scrollbar-color: rgba(255, 255, 255, 0.35) transparent;
 }
 
 #main article::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+}
+
+#main article:hover::-webkit-scrollbar {
     width: 10px;
 }
 
@@ -24,13 +30,11 @@
     background-clip: padding-box;
 }
 
-#main article:hover::-webkit-scrollbar-thumb,
-#main article:focus-within::-webkit-scrollbar-thumb {
+#main article:hover::-webkit-scrollbar-thumb {
     background-color: rgba(255, 255, 255, 0.35);
 }
 
-#main article:hover::-webkit-scrollbar-thumb:hover,
-#main article:focus-within::-webkit-scrollbar-thumb:hover {
+#main article:hover::-webkit-scrollbar-thumb:hover {
     background-color: rgba(255, 255, 255, 0.5);
 }
 
