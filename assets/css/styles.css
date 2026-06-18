@@ -1,4 +1,38 @@
-/* ...existing code... */
+/* Open article scrollbar appears only while the panel is hovered or focused. */
+#main article {
+    scrollbar-color: transparent transparent;
+}
+
+#main article:hover,
+#main article:focus-within {
+    scrollbar-color: rgba(255, 255, 255, 0.35) transparent;
+}
+
+#main article::-webkit-scrollbar {
+    width: 10px;
+}
+
+#main article::-webkit-scrollbar-track {
+    background: transparent;
+    margin: var(--radius, 4px) 0;
+}
+
+#main article::-webkit-scrollbar-thumb {
+    background-color: transparent;
+    border: 3px solid transparent;
+    border-radius: 10px;
+    background-clip: padding-box;
+}
+
+#main article:hover::-webkit-scrollbar-thumb,
+#main article:focus-within::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.35);
+}
+
+#main article:hover::-webkit-scrollbar-thumb:hover,
+#main article:focus-within::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+}
 
 .blog-post {
     border-bottom: 1px solid var(--color-line-blog, #ccc);
