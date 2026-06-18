@@ -6,7 +6,7 @@
 }
 
 #main article:hover {
-    scrollbar-color: rgba(255, 255, 255, 0.35) transparent;
+    scrollbar-color: transparent transparent;
 }
 
 #main article::-webkit-scrollbar {
@@ -19,19 +19,82 @@
 }
 
 #main article::-webkit-scrollbar-thumb {
-    background-color: transparent;
     border: 3px solid transparent;
     border-radius: 10px;
     background-clip: padding-box;
-    transition: background-color 180ms ease;
+    background-color: transparent;
 }
 
 #main article:hover::-webkit-scrollbar-thumb {
-    background-color: rgba(255, 255, 255, 0.35);
+    background-color: transparent;
 }
 
 #main article:hover::-webkit-scrollbar-thumb:hover {
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: transparent;
+}
+
+body.is-article-visible {
+    overflow: hidden;
+    overscroll-behavior: none;
+}
+
+body.is-article-visible #wrapper {
+    overflow: hidden;
+}
+
+#main article {
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+}
+
+@media screen and (max-width: 736px) {
+    body.is-article-visible #wrapper {
+        height: 100vh;
+        height: 100dvh;
+        min-height: 100vh;
+        min-height: 100dvh;
+        padding: 1rem;
+    }
+
+    body.is-article-visible #main {
+        min-height: 0;
+    }
+
+    body.is-article-visible #main article {
+        max-height: calc(100vh - 2rem);
+        max-height: calc(100dvh - 2rem);
+    }
+}
+
+.article-scrollbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 0;
+    width: 10px;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 200ms ease;
+    z-index: 4;
+}
+
+.article-scrollbar.is-visible {
+    opacity: 1;
+}
+
+.article-scrollbar:not(.is-scrollable) {
+    display: none;
+}
+
+.article-scrollbar-thumb {
+    position: absolute;
+    top: 0;
+    right: 3px;
+    width: 4px;
+    min-height: 24px;
+    border-radius: 999px;
+    background-color: rgba(255, 255, 255, 0.35);
+    will-change: transform, height;
 }
 
 .blog-post {
