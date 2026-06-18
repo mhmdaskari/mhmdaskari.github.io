@@ -1,0 +1,464 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+	<title>Design System &mdash; Mohammad Askari</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+	<!-- Same stylesheet stack as the site, tokens first. No site scripts: this
+	     is a plain scrolling reference, not part of the single-page app. -->
+	<link rel="stylesheet" href="assets/css/tokens.css" />
+	<link rel="stylesheet" href="assets/css/main.css" />
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css" />
+	<link rel="stylesheet" href="assets/css/styles.css" />
+
+	<!-- Style-guide page chrome only (prefix: sg-). Not part of the design system.
+	     Overrides the SPA's full-viewport layout so the page scrolls normally. -->
+	<style>
+		html, body { height: auto; min-height: 0; }
+		body { display: block; overflow: auto; }
+
+		.sg-page { max-width: 62rem; margin: 0 auto; padding: 3rem 2rem 6rem; }
+		.sg-head { margin-bottom: 2rem; }
+		.sg-head p { max-width: 42rem; }
+
+		.sg-toc { font-size: 0.8rem; line-height: 2; }
+		.sg-toc a { margin-right: 1rem; white-space: nowrap; }
+
+		.sg-section { margin-top: 3.5rem; padding-top: 1.5rem; border-top: 1px solid var(--color-border-bg-alt); }
+		.sg-note { opacity: 0.6; font-size: 0.85rem; margin-top: -0.5rem; }
+		.sg-sub { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.15rem; opacity: 0.55; margin: 1.5rem 0 0.75rem; }
+
+		/* Monospace caption naming the class(es) of the demoed component. */
+		.sg-label { display: inline-block; font-family: var(--font-family-fixed); font-size: 0.72rem; opacity: 0.6; margin: 0.25rem 0 0.75rem; }
+
+		/* Color swatches */
+		.sg-swatches { display: grid; grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr)); gap: 0.85rem; margin-bottom: 1rem; }
+		.sg-swatch { border: 1px solid var(--color-border-bg-alt); border-radius: var(--radius); overflow: hidden; background: var(--color-bg-alt); }
+		.sg-swatch .chip { height: 4rem; }
+		.sg-swatch .meta { padding: 0.5rem 0.65rem; }
+		.sg-swatch .meta b { display: block; font-family: var(--font-family-fixed); font-size: 0.72rem; font-weight: var(--font-weight-bold); }
+		.sg-swatch .meta .val { display: block; font-family: var(--font-family-fixed); font-size: 0.68rem; opacity: 0.55; word-break: break-all; }
+
+		/* Scale / token rows */
+		.sg-row { display: flex; align-items: baseline; gap: 1rem; padding: 0.6rem 0; border-bottom: 1px dotted var(--color-border-bg); }
+		.sg-row .name { font-family: var(--font-family-fixed); font-size: 0.72rem; opacity: 0.6; min-width: 11rem; }
+		.sg-row .val { font-family: var(--font-family-fixed); font-size: 0.72rem; opacity: 0.45; }
+
+		.sg-bar { background: var(--color-fg); height: 0.85rem; border-radius: var(--radius-small); }
+		.sg-box-demo { display: inline-block; width: 4rem; height: 4rem; background: var(--color-border-bg-alt); border: 1px solid var(--color-border); }
+
+		.sg-demo { display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: center; }
+		.sg-motion { width: 5rem; height: 3rem; border-radius: var(--radius); background: var(--color-border-bg-alt); border: 1px solid var(--color-border-bg-alt);
+			transition: background-color var(--duration-transition) ease-in-out, transform var(--duration-transition) ease-in-out; }
+		.sg-motion:hover { background: var(--color-fg); transform: translateX(1.5rem); }
+	</style>
+</head>
+
+<body>
+	<div class="sg-page">
+
+		<header class="sg-head">
+			<h1>Design System</h1>
+			<p>Living reference for <strong>mhmdaskari.github.io</strong>. Design tokens are defined in
+				<code>assets/css/tokens.css</code> &mdash; the single source of truth. Components below are styled by
+				<code>assets/css/main.css</code> (Dimension template) and <code>assets/css/styles.css</code> (custom
+				CV&nbsp;&amp; blog). To re-theme the site, edit a token and reload.</p>
+			<nav class="sg-toc">
+				<a href="#colors">Colors</a><a href="#type">Type</a><a href="#spacing">Spacing</a><a href="#motion">Motion</a><a href="#text">Text</a><a href="#lists">Lists</a><a href="#tables">Tables</a><a href="#buttons">Buttons</a><a href="#forms">Forms</a><a href="#icons">Icons</a><a href="#images">Images</a><a href="#box">Box</a><a href="#cv">CV</a><a href="#blog">Blog</a>
+			</nav>
+		</header>
+
+		<!-- ============================================================ COLORS -->
+		<section class="sg-section" id="colors">
+			<h2 class="major">Color tokens</h2>
+			<p class="sg-note">Values are read live from <code>:root</code> via <code>getComputedStyle</code>.</p>
+
+			<p class="sg-sub">Backgrounds</p>
+			<div class="sg-swatches">
+				<div class="sg-swatch"><div class="chip" style="background: var(--color-bg)"></div><div class="meta"><b>--color-bg</b><span class="val" data-token="--color-bg"></span></div></div>
+				<div class="sg-swatch"><div class="chip" style="background: var(--color-bg-alt)"></div><div class="meta"><b>--color-bg-alt</b><span class="val" data-token="--color-bg-alt"></span></div></div>
+				<div class="sg-swatch"><div class="chip" style="background: var(--color-bg-overlay)"></div><div class="meta"><b>--color-bg-overlay</b><span class="val" data-token="--color-bg-overlay"></span></div></div>
+			</div>
+
+			<p class="sg-sub">Foreground / text</p>
+			<div class="sg-swatches">
+				<div class="sg-swatch"><div class="chip" style="background: var(--color-fg)"></div><div class="meta"><b>--color-fg</b><span class="val" data-token="--color-fg"></span></div></div>
+				<div class="sg-swatch"><div class="chip" style="background: var(--color-fg-bold)"></div><div class="meta"><b>--color-fg-bold</b><span class="val" data-token="--color-fg-bold"></span></div></div>
+				<div class="sg-swatch"><div class="chip" style="background: var(--color-fg-light)"></div><div class="meta"><b>--color-fg-light</b><span class="val" data-token="--color-fg-light"></span></div></div>
+				<div class="sg-swatch"><div class="chip" style="background: var(--color-fg-faint)"></div><div class="meta"><b>--color-fg-faint</b><span class="val" data-token="--color-fg-faint"></span></div></div>
+			</div>
+
+			<p class="sg-sub">Borders</p>
+			<div class="sg-swatches">
+				<div class="sg-swatch"><div class="chip" style="background: var(--color-border)"></div><div class="meta"><b>--color-border</b><span class="val" data-token="--color-border"></span></div></div>
+				<div class="sg-swatch"><div class="chip" style="background: var(--color-border-bg)"></div><div class="meta"><b>--color-border-bg</b><span class="val" data-token="--color-border-bg"></span></div></div>
+				<div class="sg-swatch"><div class="chip" style="background: var(--color-border-bg-alt)"></div><div class="meta"><b>--color-border-bg-alt</b><span class="val" data-token="--color-border-bg-alt"></span></div></div>
+			</div>
+
+			<p class="sg-sub">Custom-component surfaces &amp; lines</p>
+			<div class="sg-swatches">
+				<div class="sg-swatch"><div class="chip" style="background: var(--color-surface-1)"></div><div class="meta"><b>--color-surface-1</b><span class="val" data-token="--color-surface-1"></span></div></div>
+				<div class="sg-swatch"><div class="chip" style="background: var(--color-surface-2)"></div><div class="meta"><b>--color-surface-2</b><span class="val" data-token="--color-surface-2"></span></div></div>
+				<div class="sg-swatch"><div class="chip" style="background: var(--color-line-subtle)"></div><div class="meta"><b>--color-line-subtle</b><span class="val" data-token="--color-line-subtle"></span></div></div>
+				<div class="sg-swatch"><div class="chip" style="background: var(--color-line-soft)"></div><div class="meta"><b>--color-line-soft</b><span class="val" data-token="--color-line-soft"></span></div></div>
+				<div class="sg-swatch"><div class="chip" style="background: var(--color-line-muted)"></div><div class="meta"><b>--color-line-muted</b><span class="val" data-token="--color-line-muted"></span></div></div>
+				<div class="sg-swatch"><div class="chip" style="background: var(--color-line-timeline)"></div><div class="meta"><b>--color-line-timeline</b><span class="val" data-token="--color-line-timeline"></span></div></div>
+				<div class="sg-swatch"><div class="chip" style="background: var(--color-line-blog)"></div><div class="meta"><b>--color-line-blog</b><span class="val" data-token="--color-line-blog"></span></div></div>
+			</div>
+			<p class="sg-note"><code>--color-line-blog</code> and <code>--color-fg-faint</code> are off-palette (light grays inherited from the original blog styling).</p>
+
+			<p class="sg-sub">Opacity steps</p>
+			<div class="sg-row"><span class="name">--opacity-muted</span><span style="opacity: var(--opacity-muted)">The quick brown fox</span><span class="val" data-token="--opacity-muted"></span></div>
+			<div class="sg-row"><span class="name">--opacity-soft</span><span style="opacity: var(--opacity-soft)">The quick brown fox</span><span class="val" data-token="--opacity-soft"></span></div>
+			<div class="sg-row"><span class="name">--opacity-medium</span><span style="opacity: var(--opacity-medium)">The quick brown fox</span><span class="val" data-token="--opacity-medium"></span></div>
+			<div class="sg-row"><span class="name">--opacity-strong</span><span style="opacity: var(--opacity-strong)">The quick brown fox</span><span class="val" data-token="--opacity-strong"></span></div>
+		</section>
+
+		<!-- ============================================================ TYPE -->
+		<section class="sg-section" id="type">
+			<h2 class="major">Typography</h2>
+			<p class="sg-note">Family <code data-token="--font-family"></code> &middot; weights 300 / 600.</p>
+
+			<p class="sg-sub">Type scale</p>
+			<div class="sg-row"><span class="name">--text-h1</span><h1 style="margin:0">Heading 1</h1><span class="val" data-token="--text-h1"></span></div>
+			<div class="sg-row"><span class="name">--text-h2</span><h2 style="margin:0">Heading 2</h2><span class="val" data-token="--text-h2"></span></div>
+			<div class="sg-row"><span class="name">--text-h3</span><h3 style="margin:0">Heading 3</h3><span class="val" data-token="--text-h3"></span></div>
+			<div class="sg-row"><span class="name">--text-h4</span><h4 style="margin:0">Heading 4</h4><span class="val" data-token="--text-h4"></span></div>
+			<div class="sg-row"><span class="name">--text-h5</span><h5 style="margin:0">Heading 5</h5><span class="val" data-token="--text-h5"></span></div>
+			<div class="sg-row"><span class="name">--text-h6</span><h6 style="margin:0">Heading 6</h6><span class="val" data-token="--text-h6"></span></div>
+
+			<p class="sg-sub">Body &amp; inline</p>
+			<p>Body copy at <code>1rem</code>, line-height <span data-token="--line-height"></span>. This is <strong>strong</strong>,
+				this is <em>emphasized</em>, this is <a href="#type">a link</a>, and this is inline
+				<code>code</code> set in <code data-token="--font-family-fixed"></code>.</p>
+		</section>
+
+		<!-- ============================================================ SPACING -->
+		<section class="sg-section" id="spacing">
+			<h2 class="major">Spacing &amp; radius</h2>
+
+			<p class="sg-sub">Spacing / sizing</p>
+			<div class="sg-row"><span class="name">--space-element</span><div class="sg-bar" style="width: var(--space-element)"></div><span class="val" data-token="--space-element"></span></div>
+			<div class="sg-row"><span class="name">--size-element-height</span><div class="sg-bar" style="width: var(--size-element-height)"></div><span class="val" data-token="--size-element-height"></span></div>
+
+			<p class="sg-sub">Radius &amp; border width</p>
+			<div class="sg-demo">
+				<div><span class="sg-box-demo" style="border-radius: var(--radius)"></span><div class="sg-label">--radius (<span data-token="--radius"></span>)</div></div>
+				<div><span class="sg-box-demo" style="border-radius: var(--radius-small)"></span><div class="sg-label">--radius-small (<span data-token="--radius-small"></span>)</div></div>
+				<div><span class="sg-box-demo" style="border-width: var(--border-width)"></span><div class="sg-label">--border-width (<span data-token="--border-width"></span>)</div></div>
+			</div>
+		</section>
+
+		<!-- ============================================================ MOTION -->
+		<section class="sg-section" id="motion">
+			<h2 class="major">Motion</h2>
+			<p class="sg-note">Hover the box &mdash; it transitions over <code>--duration-transition</code>.</p>
+			<div class="sg-motion"></div>
+			<div class="sg-row"><span class="name">--duration-transition</span><span class="val" data-token="--duration-transition"></span></div>
+			<div class="sg-row"><span class="name">--duration-bg</span><span class="val" data-token="--duration-bg"></span></div>
+			<div class="sg-row"><span class="name">--duration-intro</span><span class="val" data-token="--duration-intro"></span></div>
+			<div class="sg-row"><span class="name">--duration-article</span><span class="val" data-token="--duration-article"></span></div>
+		</section>
+
+		<!-- ============================================================ TEXT -->
+		<section class="sg-section" id="text">
+			<h2 class="major">Text</h2>
+			<p>This is <b>bold</b> and this is <strong>strong</strong>. This is <i>italic</i> and this is
+				<em>emphasized</em>. This is <sup>superscript</sup> text and this is <sub>subscript</sub> text.
+				This is <u>underlined</u> and this is code: <code>for (;;) { ... }</code>. Finally, <a href="#text">this is a link</a>.</p>
+			<hr />
+			<h4>Blockquote</h4>
+			<blockquote>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget tempus euismod.
+				Vestibulum ante ipsum primis in faucibus vestibulum.</blockquote>
+			<h4>Preformatted</h4>
+			<pre><code>i = 0;
+
+while (!deck.isInOrder()) {
+    print 'Iteration ' + i;
+    deck.shuffle();
+    i++;
+}</code></pre>
+		</section>
+
+		<!-- ============================================================ LISTS -->
+		<section class="sg-section" id="lists">
+			<h2 class="major">Lists</h2>
+			<h4>Unordered</h4>
+			<ul>
+				<li>Dolor pulvinar etiam.</li>
+				<li>Sagittis adipiscing.</li>
+				<li>Felis enim feugiat.</li>
+			</ul>
+			<div class="sg-label">ul</div>
+			<h4>Alternate</h4>
+			<ul class="alt">
+				<li>Dolor pulvinar etiam.</li>
+				<li>Sagittis adipiscing.</li>
+				<li>Felis enim feugiat.</li>
+			</ul>
+			<div class="sg-label">ul.alt</div>
+			<h4>Ordered</h4>
+			<ol>
+				<li>Dolor pulvinar etiam.</li>
+				<li>Etiam vel felis viverra.</li>
+				<li>Felis enim feugiat.</li>
+			</ol>
+			<div class="sg-label">ol</div>
+		</section>
+
+		<!-- ============================================================ TABLES -->
+		<section class="sg-section" id="tables">
+			<h2 class="major">Tables</h2>
+			<h4>Default</h4>
+			<div class="table-wrapper">
+				<table>
+					<thead>
+						<tr><th>Name</th><th>Description</th><th>Price</th></tr>
+					</thead>
+					<tbody>
+						<tr><td>Item One</td><td>Ante turpis integer aliquet porttitor.</td><td>29.99</td></tr>
+						<tr><td>Item Two</td><td>Vis ac commodo adipiscing arcu aliquet.</td><td>19.99</td></tr>
+						<tr><td>Item Three</td><td>Morbi faucibus arcu accumsan lorem.</td><td>29.99</td></tr>
+					</tbody>
+					<tfoot>
+						<tr><td colspan="2"></td><td>100.00</td></tr>
+					</tfoot>
+				</table>
+			</div>
+			<div class="sg-label">table &middot; .table-wrapper</div>
+			<h4>Alternate</h4>
+			<div class="table-wrapper">
+				<table class="alt">
+					<thead>
+						<tr><th>Name</th><th>Description</th><th>Price</th></tr>
+					</thead>
+					<tbody>
+						<tr><td>Item One</td><td>Ante turpis integer aliquet porttitor.</td><td>29.99</td></tr>
+						<tr><td>Item Two</td><td>Vis ac commodo adipiscing arcu aliquet.</td><td>19.99</td></tr>
+						<tr><td>Item Three</td><td>Morbi faucibus arcu accumsan lorem.</td><td>29.99</td></tr>
+					</tbody>
+					<tfoot>
+						<tr><td colspan="2"></td><td>100.00</td></tr>
+					</tfoot>
+				</table>
+			</div>
+			<div class="sg-label">table.alt</div>
+		</section>
+
+		<!-- ============================================================ BUTTONS -->
+		<section class="sg-section" id="buttons">
+			<h2 class="major">Buttons</h2>
+			<ul class="actions">
+				<li><a href="#buttons" class="button primary">Primary</a></li>
+				<li><a href="#buttons" class="button">Default</a></li>
+				<li><a href="#buttons" class="button small">Small</a></li>
+			</ul>
+			<ul class="actions">
+				<li><a href="#buttons" class="button primary icon solid fa-download">Icon</a></li>
+				<li><a href="#buttons" class="button icon solid fa-download">Icon</a></li>
+			</ul>
+			<ul class="actions">
+				<li><span class="button primary disabled">Disabled</span></li>
+				<li><span class="button disabled">Disabled</span></li>
+			</ul>
+			<div class="sg-label">a.button[.primary|.small|.icon|.disabled] &middot; ul.actions</div>
+		</section>
+
+		<!-- ============================================================ FORMS -->
+		<section class="sg-section" id="forms">
+			<h2 class="major">Form</h2>
+			<form method="post" action="#forms" onsubmit="return false">
+				<div class="fields">
+					<div class="field half">
+						<label for="sg-name">Name</label>
+						<input type="text" name="sg-name" id="sg-name" value="" placeholder="Jane Doe" />
+					</div>
+					<div class="field half">
+						<label for="sg-email">Email</label>
+						<input type="email" name="sg-email" id="sg-email" value="" placeholder="jane@untitled.tld" />
+					</div>
+					<div class="field">
+						<label for="sg-category">Category</label>
+						<select name="sg-category" id="sg-category">
+							<option value="">-</option>
+							<option value="1">Manufacturing</option>
+							<option value="2">Shipping</option>
+							<option value="3">Administration</option>
+						</select>
+					</div>
+					<div class="field half">
+						<input type="radio" id="sg-priority-low" name="sg-priority" checked>
+						<label for="sg-priority-low">Low</label>
+					</div>
+					<div class="field half">
+						<input type="radio" id="sg-priority-high" name="sg-priority">
+						<label for="sg-priority-high">High</label>
+					</div>
+					<div class="field half">
+						<input type="checkbox" id="sg-copy" name="sg-copy">
+						<label for="sg-copy">Email me a copy</label>
+					</div>
+					<div class="field half">
+						<input type="checkbox" id="sg-human" name="sg-human" checked>
+						<label for="sg-human">Not a robot</label>
+					</div>
+					<div class="field">
+						<label for="sg-message">Message</label>
+						<textarea name="sg-message" id="sg-message" placeholder="Enter your message" rows="6"></textarea>
+					</div>
+				</div>
+				<ul class="actions">
+					<li><input type="submit" value="Send Message" class="primary" /></li>
+					<li><input type="reset" value="Reset" /></li>
+				</ul>
+			</form>
+			<div class="sg-label">.fields &middot; .field[.half] &middot; input / select / textarea</div>
+		</section>
+
+		<!-- ============================================================ ICONS -->
+		<section class="sg-section" id="icons">
+			<h2 class="major">Icons</h2>
+			<p class="sg-sub">Brand icons (Font Awesome)</p>
+			<ul class="icons">
+				<li><a href="#icons" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+				<li><a href="#icons" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+				<li><a href="#icons" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+				<li><a href="#icons" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+			</ul>
+			<div class="sg-label">ul.icons &middot; a.icon.brands.fa-*</div>
+			<p class="sg-sub">Academic icons (Academicons)</p>
+			<ul class="icons">
+				<li><a href="#icons" class="ai ai-google-scholar-square"><span class="label">Scholar</span></a></li>
+				<li><a href="#icons" class="ai ai-researchgate-square"><span class="label">ResearchGate</span></a></li>
+			</ul>
+			<div class="sg-label">ul.icons &middot; a.ai.ai-* (no .icon class, matching the site)</div>
+		</section>
+
+		<!-- ============================================================ IMAGES -->
+		<section class="sg-section" id="images">
+			<h2 class="major">Images</h2>
+			<span class="image fit"><img src="images/pic01.jpg" alt="Example image, full width" /></span>
+			<div class="sg-label">span.image.fit</div>
+			<span class="image left"><img src="images/pic02.jpg" alt="Example image, floated left" /></span>
+			<p>The <code>.image.left</code> variant floats with the surrounding text wrapping to its right, while
+				<code>.image.fit</code> spans the full content width. Lorem ipsum dolor sit amet, consectetur adipiscing
+				elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+			<div class="sg-label">span.image.left</div>
+		</section>
+
+		<!-- ============================================================ BOX -->
+		<section class="sg-section" id="box">
+			<h2 class="major">Box</h2>
+			<div class="box">
+				<p>A bordered <code>.box</code> container with standard padding. Useful for grouping related content.</p>
+			</div>
+			<div class="sg-label">.box</div>
+			<div class="box alt">
+				<p>The <code>.box.alt</code> variant drops the border, padding, and radius.</p>
+			</div>
+			<div class="sg-label">.box.alt</div>
+		</section>
+
+		<!-- ============================================================ CV COMPONENTS -->
+		<section class="sg-section" id="cv">
+			<h2 class="major">Custom &mdash; CV components</h2>
+			<p class="sg-note">Styled by <code>assets/css/styles.css</code>. Used inside the injected CV.</p>
+
+			<h3 class="cv-section-title"><i class="fas fa-briefcase"></i> Section title</h3>
+			<div class="sg-label">h3.cv-section-title &middot; i.fas</div>
+
+			<p class="sg-sub">Timeline</p>
+			<div class="cv-timeline">
+				<div class="cv-timeline-item">
+					<h4>University of California, Los Angeles <span class="cv-tag">Graduate Student Researcher</span></h4>
+					<p class="cv-role">PhD Candidate in Civil Engineering</p>
+					<p class="cv-meta">Expected Dec 2026 &bull; Los Angeles, CA</p>
+				</div>
+				<div class="cv-timeline-item">
+					<h4>Example Institution</h4>
+					<p class="cv-role">BSc in Engineering</p>
+					<p class="cv-meta">2015 &ndash; 2019</p>
+				</div>
+			</div>
+			<div class="sg-label">.cv-timeline &middot; .cv-timeline-item &middot; .cv-tag / .cv-role / .cv-meta</div>
+
+			<p class="sg-sub">Skills</p>
+			<div class="cv-skills">
+				<div class="cv-skill-group">
+					<span class="cv-skill-label">Languages</span>
+					<span class="cv-badge">Python</span><span class="cv-badge">R</span><span class="cv-badge">C++</span>
+				</div>
+				<div class="cv-skill-group">
+					<span class="cv-skill-label">Tools</span>
+					<span class="cv-badge">Git</span><span class="cv-badge">Docker</span><span class="cv-badge">LaTeX</span>
+				</div>
+			</div>
+			<div class="sg-label">.cv-skills &middot; .cv-skill-group &middot; .cv-skill-label &middot; .cv-badge</div>
+
+			<p class="sg-sub">Publications</p>
+			<ol class="cv-pub-list">
+				<li class="cv-pub">
+					<p class="cv-pub-title">An example publication title demonstrating the citation block</p>
+					<p class="cv-pub-authors">Doe, J., <strong>Askari, M.</strong>, &amp; Smith, A.</p>
+					<p class="cv-pub-venue"><em>Journal of Examples</em>, 12(3), 100&ndash;120 <span class="cv-pub-status">In press</span></p>
+					<a class="cv-pub-doi" href="#cv">DOI: 10.0000/example.2026.001</a>
+				</li>
+			</ol>
+			<div class="sg-label">ol.cv-pub-list &middot; .cv-pub &middot; .cv-pub-title/-authors/-venue/-doi/-status</div>
+
+			<p class="sg-sub">Rows (presentations / certifications)</p>
+			<div class="cv-rows">
+				<div class="cv-row-item">
+					<span class="cv-row-date">May 2025</span>
+					<div class="cv-row-body">
+						<span class="cv-row-venue">Example Conference</span>
+						<p>A modular object-oriented framework for demonstrations.</p>
+					</div>
+				</div>
+				<div class="cv-row-item">
+					<span class="cv-row-date">Jan 2024</span>
+					<div class="cv-row-body">
+						<span class="cv-row-venue">Certification Body</span>
+						<p>Certified Example Practitioner.</p>
+					</div>
+				</div>
+			</div>
+			<div class="sg-label">.cv-rows &middot; .cv-row-item &middot; .cv-row-date &middot; .cv-row-body &middot; .cv-row-venue</div>
+		</section>
+
+		<!-- ============================================================ BLOG -->
+		<section class="sg-section" id="blog">
+			<h2 class="major">Custom &mdash; Blog card</h2>
+			<p class="sg-note">Markup generated by <code>assets/js/blog.js</code>, styled by <code>assets/css/styles.css</code>.</p>
+			<div class="blog-post">
+				<div class="blog-header">
+					<p class="blog-date">2025-10-03</p>
+					<h3 class="blog-title">An example blog post</h3>
+				</div>
+				<span class="image fit"><img src="images/pic03.jpg" alt="An example blog post" /></span>
+				<p class="blog-text">This is the body text of a blog post. Lorem ipsum dolor sit amet, consectetur
+					adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+			</div>
+			<div class="sg-label">.blog-post &middot; .blog-header &middot; .blog-date &middot; .blog-title &middot; .blog-text</div>
+		</section>
+
+	</div>
+
+	<!-- Print resolved token values into [data-token] nodes. The only script on
+	     this page; read-only, no build step. -->
+	<script>
+		(function () {
+			var cs = getComputedStyle(document.documentElement);
+			var nodes = document.querySelectorAll('[data-token]');
+			for (var i = 0; i < nodes.length; i++) {
+				var name = nodes[i].getAttribute('data-token');
+				nodes[i].textContent = cs.getPropertyValue(name).trim();
+			}
+		})();
+	</script>
+
+</body>
+
+</html>
