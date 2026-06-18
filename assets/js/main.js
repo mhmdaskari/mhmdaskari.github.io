@@ -69,6 +69,79 @@
 		var	delay = 325,
 			locked = false;
 
+		// Article scrollbars.
+			var updateArticleScrollbar = function($article) {
+
+				var	article = $article[0],
+					$scrollbar = $article.data('articleScrollbar');
+
+				if (!$scrollbar || $scrollbar.length == 0)
+					return;
+
+				var $thumb = $scrollbar.children('.article-scrollbar-thumb');
+
+				if ($thumb.length == 0)
+					return;
+
+				var	articleStyle = window.getComputedStyle(article),
+					articleRect = article.getBoundingClientRect(),
+					scrollbarWidth = 10,
+					scrollbarInset = parseFloat(articleStyle.borderTopRightRadius) || 4,
+					trackHeight = Math.max(0, articleRect.height - (scrollbarInset * 2)),
+					clientHeight = article.clientHeight,
+					scrollHeight = article.scrollHeight,
+					maxScroll = scrollHeight - clientHeight;
+
+				$scrollbar.css({
+					top: (articleRect.top + scrollbarInset) + 'px',
+					left: (articleRect.right - scrollbarWidth) + 'px',
+					height: trackHeight + 'px'
+				});
+
+				if (trackHeight <= 0 || maxScroll <= 1) {
+					$article.removeClass('is-scrollable');
+					$scrollbar.removeClass('is-scrollable is-visible');
+					return;
+				}
+
+				var	thumbHeight = Math.max(24, trackHeight * (clientHeight / scrollHeight)),
+					maxThumbTop = trackHeight - thumbHeight,
+					thumbTop = maxThumbTop * (article.scrollTop / maxScroll);
+
+				$article.addClass('is-scrollable');
+				$scrollbar.addClass('is-scrollable');
+				$thumb.css({
+					height: thumbHeight + 'px',
+					transform: 'translateY(' + thumbTop + 'px)'
+				});
+
+			};
+
+			var updateArticleScrollbars = function() {
+
+				$main_articles.each(function() {
+					updateArticleScrollbar($(this));
+				});
+
+			};
+
+			var hideArticleScrollbar = function($article) {
+
+				var $scrollbar = $article.data('articleScrollbar');
+
+				if ($scrollbar)
+					$scrollbar.removeClass('is-visible');
+
+			};
+
+			var requestArticleScrollbarUpdate = function($article) {
+
+				window.requestAnimationFrame(function() {
+					updateArticleScrollbar($article);
+				});
+
+			};
+
 		// Methods.
 			$main._show = function(id, initial) {
 
@@ -102,6 +175,7 @@
 
 							// Activate article.
 								$article.addClass('active');
+								requestArticleScrollbarUpdate($article);
 
 							// Unlock.
 								locked = false;
@@ -124,6 +198,7 @@
 						// Deactivate current article.
 							var $currentArticle = $main_articles.filter('.active');
 
+							hideArticleScrollbar($currentArticle);
 							$currentArticle.removeClass('active');
 
 						// Show article.
@@ -139,6 +214,7 @@
 									setTimeout(function() {
 
 										$article.addClass('active');
+										requestArticleScrollbarUpdate($article);
 
 										// Window stuff.
 											$window
@@ -178,6 +254,7 @@
 									setTimeout(function() {
 
 										$article.addClass('active');
+										requestArticleScrollbarUpdate($article);
 
 										// Window stuff.
 											$window
@@ -204,6 +281,8 @@
 				// Article not visible? Bail.
 					if (!$body.hasClass('is-article-visible'))
 						return;
+
+				hideArticleScrollbar($article);
 
 				// Add state?
 					if (typeof addState != 'undefined'
@@ -298,6 +377,36 @@
 							location.hash = '';
 						});
 
+				// Scrollbar.
+					var $scrollbar = $('<div class="article-scrollbar" aria-hidden="true"><div class="article-scrollbar-thumb"></div></div>')
+						.appendTo($body);
+
+					$this.data('articleScrollbar', $scrollbar);
+
+					$this
+						.on('scroll.article-scrollbar', function() {
+							updateArticleScrollbar($this);
+						})
+						.on('mouseenter.article-scrollbar', function() {
+							updateArticleScrollbar($this);
+							$scrollbar.addClass('is-visible');
+						})
+						.on('mouseleave.article-scrollbar', function() {
+							$scrollbar.removeClass('is-visible');
+						});
+
+					if ('MutationObserver' in window) {
+
+						(new MutationObserver(function() {
+							requestArticleScrollbarUpdate($this);
+						})).observe(this, {
+							childList: true,
+							subtree: true,
+							characterData: true
+						});
+
+					}
+
 				// Prevent clicks from inside article from bubbling.
 					$this.on('click', function(event) {
 						event.stopPropagation();
@@ -384,6 +493,10 @@
 					});
 
 			}
+
+		$window.on('load resize', function() {
+			updateArticleScrollbars();
+		});
 
 		// Initialize.
 
