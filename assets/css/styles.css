@@ -33,12 +33,12 @@
     background-color: transparent;
 }
 
-body.is-article-visible {
+body.is-article-visible:not(.is-article-opening) {
     overflow: hidden;
     overscroll-behavior: none;
 }
 
-body.is-article-visible #wrapper {
+body.is-article-visible:not(.is-article-opening) #wrapper {
     overflow: hidden;
 }
 
@@ -48,7 +48,7 @@ body.is-article-visible #wrapper {
 }
 
 @media screen and (max-width: 736px) {
-    body.is-article-visible #wrapper {
+    body.is-article-visible:not(.is-article-opening) #wrapper {
         height: 100vh;
         height: 100dvh;
         min-height: 100vh;
@@ -56,11 +56,11 @@ body.is-article-visible #wrapper {
         padding: 1rem;
     }
 
-    body.is-article-visible #main {
+    body.is-article-visible:not(.is-article-opening) #main {
         min-height: 0;
     }
 
-    body.is-article-visible #main article {
+    body.is-article-visible:not(.is-article-opening) #main article {
         max-height: calc(100vh - 2rem);
         max-height: calc(100dvh - 2rem);
     }
