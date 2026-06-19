@@ -209,7 +209,9 @@
 								$body.addClass('is-switching');
 
 							// Mark as visible.
-								$body.addClass('is-article-visible');
+								$body
+									.removeClass('is-article-opening')
+									.addClass('is-article-visible');
 
 							// Deactivate all articles (just in case one's already active).
 								$main_articles.removeClass('active');
@@ -286,7 +288,7 @@
 
 						// Mark as visible.
 							$body
-								.addClass('is-article-visible');
+								.addClass('is-article-visible is-article-opening');
 
 						// Show article.
 							setTimeout(function() {
@@ -303,12 +305,15 @@
 									setTimeout(function() {
 
 										$article.addClass('active');
-										requestArticleScrollbarUpdate($article);
 
 										// Window stuff.
 											$window
 												.scrollTop(0)
 												.triggerHandler('resize.flexbox-fix');
+
+										// Lock page scroll once the article is visible.
+											$body.removeClass('is-article-opening');
+											requestArticleScrollbarUpdate($article);
 
 										// Unlock.
 											setTimeout(function() {
@@ -358,7 +363,7 @@
 								$header.show();
 
 							// Unmark as visible.
-								$body.removeClass('is-article-visible');
+								$body.removeClass('is-article-visible is-article-opening');
 
 							// Unlock.
 								locked = false;
@@ -395,7 +400,7 @@
 						// Unmark as visible.
 							setTimeout(function() {
 
-								$body.removeClass('is-article-visible');
+								$body.removeClass('is-article-visible is-article-opening');
 
 								// Window stuff.
 									$window
