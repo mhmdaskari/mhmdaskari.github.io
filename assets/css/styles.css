@@ -1,4 +1,4 @@
-/* Open article scrollbar appears only while the panel is hovered. */
+/* Open article scrollbar appears while the panel is hovered or scrolling. */
 #main article {
     scrollbar-width: thin;
     scrollbar-color: transparent transparent;

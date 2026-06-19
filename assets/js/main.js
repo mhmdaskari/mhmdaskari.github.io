@@ -125,12 +125,61 @@
 
 			};
 
+			var clearArticleScrollbarHide = function($article) {
+
+				var timeout = $article.data('articleScrollbarHideTimeout');
+
+				if (timeout) {
+					window.clearTimeout(timeout);
+					$article.removeData('articleScrollbarHideTimeout');
+				}
+
+			};
+
 			var hideArticleScrollbar = function($article) {
 
 				var $scrollbar = $article.data('articleScrollbar');
 
+				clearArticleScrollbarHide($article);
+
 				if ($scrollbar)
 					$scrollbar.removeClass('is-visible');
+
+			};
+
+			var scheduleArticleScrollbarHide = function($article) {
+
+				clearArticleScrollbarHide($article);
+
+				$article.data('articleScrollbarHideTimeout', window.setTimeout(function() {
+
+					$article.removeData('articleScrollbarHideTimeout');
+
+					if (!$article.data('articleScrollbarHovering'))
+						hideArticleScrollbar($article);
+
+				}, 350));
+
+			};
+
+			var showArticleScrollbar = function($article, temporary) {
+
+				var $scrollbar = $article.data('articleScrollbar');
+
+				if (!$scrollbar || $scrollbar.length == 0)
+					return;
+
+				updateArticleScrollbar($article);
+
+				if (!$scrollbar.hasClass('is-scrollable'))
+					return;
+
+				$scrollbar.addClass('is-visible');
+
+				if (temporary)
+					scheduleArticleScrollbarHide($article);
+				else
+					clearArticleScrollbarHide($article);
 
 			};
 
@@ -385,14 +434,21 @@
 
 					$this
 						.on('scroll.article-scrollbar', function() {
-							updateArticleScrollbar($this);
+							showArticleScrollbar($this, true);
+						})
+						.on('wheel.article-scrollbar touchmove.article-scrollbar', function() {
+							showArticleScrollbar($this, true);
+						})
+						.on('touchend.article-scrollbar touchcancel.article-scrollbar', function() {
+							scheduleArticleScrollbarHide($this);
 						})
 						.on('mouseenter.article-scrollbar', function() {
-							updateArticleScrollbar($this);
-							$scrollbar.addClass('is-visible');
+							$this.data('articleScrollbarHovering', true);
+							showArticleScrollbar($this, false);
 						})
 						.on('mouseleave.article-scrollbar', function() {
-							$scrollbar.removeClass('is-visible');
+							$this.removeData('articleScrollbarHovering');
+							hideArticleScrollbar($this);
 						});
 
 					if ('MutationObserver' in window) {

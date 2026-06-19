@@ -53,6 +53,16 @@
 		.sg-motion { width: 5rem; height: 3rem; border-radius: var(--radius); background: var(--color-border-bg-alt); border: 1px solid var(--color-border-bg-alt);
 			transition: background-color var(--duration-transition) ease-in-out, transform var(--duration-transition) ease-in-out; }
 		.sg-motion:hover { background: var(--color-fg); transform: translateX(1.5rem); }
+
+		/* Opened article window reference. Production behavior is JS-driven. */
+		.sg-window-demo { position: relative; min-height: 24rem; margin-bottom: 0.75rem; padding: 2.25rem 3rem 2.25rem 2.25rem; border: 1px solid var(--color-border-bg-alt); border-radius: var(--radius); background: var(--color-bg-alt); overflow: hidden; }
+		.sg-window-demo article { display: block; width: auto; max-width: none; margin: 0; padding: 0; background: transparent; border: 0; }
+		.sg-window-close { position: absolute; top: 1rem; right: 1rem; width: 1.5rem; height: 1.5rem; }
+		.sg-window-close:before, .sg-window-close:after { content: ''; position: absolute; top: 50%; left: 50%; width: 1.35rem; height: 1px; background: var(--color-fg); }
+		.sg-window-close:before { transform: translate(-50%, -50%) rotate(45deg); }
+		.sg-window-close:after { transform: translate(-50%, -50%) rotate(-45deg); }
+		.sg-window-demo .article-scrollbar { position: absolute; top: 1.25rem; right: 1rem; left: auto; height: calc(100% - 2.5rem); opacity: 1; z-index: 2; }
+		.sg-window-demo .article-scrollbar-thumb { height: 8rem; transform: translateY(4.25rem); }
 	</style>
 </head>
 
@@ -64,9 +74,9 @@
 			<p>Living reference for <strong>mhmdaskari.github.io</strong>. Design tokens are defined in
 				<code>assets/css/tokens.css</code> &mdash; the single source of truth. Components below are styled by
 				<code>assets/css/main.css</code> (Dimension template) and <code>assets/css/styles.css</code> (custom
-				CV&nbsp;&amp; blog). To re-theme the site, edit a token and reload.</p>
+				CV, blog, and opened-window refinements). To re-theme the site, edit a token and reload.</p>
 			<nav class="sg-toc">
-				<a href="#colors">Colors</a><a href="#type">Type</a><a href="#spacing">Spacing</a><a href="#motion">Motion</a><a href="#text">Text</a><a href="#lists">Lists</a><a href="#tables">Tables</a><a href="#buttons">Buttons</a><a href="#forms">Forms</a><a href="#icons">Icons</a><a href="#images">Images</a><a href="#box">Box</a><a href="#cv">CV</a><a href="#blog">Blog</a>
+				<a href="#colors">Colors</a><a href="#type">Type</a><a href="#spacing">Spacing</a><a href="#motion">Motion</a><a href="#text">Text</a><a href="#lists">Lists</a><a href="#tables">Tables</a><a href="#buttons">Buttons</a><a href="#forms">Forms</a><a href="#icons">Icons</a><a href="#images">Images</a><a href="#box">Box</a><a href="#opened-window">Opened window</a><a href="#cv">CV</a><a href="#blog">Blog</a>
 			</nav>
 		</header>
 
@@ -359,6 +369,29 @@ while (!deck.isInOrder()) {
 				<p>The <code>.box.alt</code> variant drops the border, padding, and radius.</p>
 			</div>
 			<div class="sg-label">.box.alt</div>
+		</section>
+
+		<!-- ============================================================ OPENED ARTICLE WINDOW -->
+		<section class="sg-section" id="opened-window">
+			<h2 class="major">Custom &mdash; opened article window</h2>
+			<p class="sg-note">Production target: <code>#main article</code>. The visual scrollbar is injected and positioned by <code>assets/js/main.js</code>, while sizing, fade, and mobile scroll containment live in <code>assets/css/styles.css</code>.</p>
+
+			<div class="sg-window-demo">
+				<div class="sg-window-close" aria-hidden="true"></div>
+				<article class="is-scrollable">
+					<h3>Popup panel reference</h3>
+					<p>This represents the active Dimension article panel used for About, CV, Projects, Blog, and Contact.</p>
+					<ul class="alt">
+						<li>Native article scrollbars are visually transparent so content does not shift when the scrollbar appears.</li>
+						<li>The custom <code>.article-scrollbar</code> fades in on hover, wheel, touch swipe, or scroll.</li>
+						<li>On mobile, <code>body.is-article-visible</code> locks the outer page and lets the article own the scroll.</li>
+					</ul>
+				</article>
+				<div class="article-scrollbar is-scrollable is-visible" aria-hidden="true">
+					<div class="article-scrollbar-thumb"></div>
+				</div>
+			</div>
+			<div class="sg-label">body.is-article-visible &middot; #main article &middot; .article-scrollbar[.is-scrollable][.is-visible] &middot; .article-scrollbar-thumb</div>
 		</section>
 
 		<!-- ============================================================ CV COMPONENTS -->
