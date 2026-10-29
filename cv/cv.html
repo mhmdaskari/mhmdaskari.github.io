@@ -12,9 +12,9 @@
     <div class="cv-timeline-item">
         <h4>University of California, Los Angeles (UCLA)</h4>
         <p class="cv-role">PhD Candidate in Civil Engineering</p>
-        <p class="cv-meta">Expected Dec 2026 &bull; Los Angeles, CA</p>
+        <p class="cv-meta">cGPA 4.0 &bull; Los Angeles, CA</p>
         <p class="cv-role">MSc Candidate in Statistics and Data Science</p>
-        <p class="cv-meta">Expected Dec 2026 &bull; Los Angeles, CA</p>
+        <p class="cv-meta">cGPA 3.9 &bull; Los Angeles, CA</p>
     </div>
 </div>
 </section>
@@ -28,24 +28,56 @@
         <h4>UCLA <span class="cv-tag">Graduate Student Researcher</span></h4>
         <p class="cv-meta">Sep 2021 &ndash; Present &bull; Los Angeles, CA</p>
         <ul>
-        <li>Employed advanced statistical inference and machine learning methods to implement a Tweedie-XGBoost algorithm to estimate insurance losses for the North Carolina Insurance Underwriting Association (NCIUA).</li>
-        <li>Developed an end-to-end framework for building inventory generation through public data fusion and AI, using ViT-based and foundation models for image classification and segmentation followed by data imputation.</li>
-        <li>Implemented a multi-objective optimization framework to calibrate simulated hurricane wind and flood hazards to ASCE 7 and FEMA targets.</li>
-        <li>Designed and developed a parallelized, object-oriented Python package for regional hurricane risk analysis.</li>
-        <li>Developed transformer-based NLP and ML techniques for PII removal and text classification of damage descriptions for NCIUA.</li>
-        <li>Implemented a GPU-based greedy search algorithm in the OpenCL framework for ground motion selection (<a href="https://github.com/NHR3-UCLA/gmsm_multiple_target_spectra" target="_blank">GitHub</a>).</li>
+        <li>Lead developer of CHEERSafe (<a href="https://mhmdaskari.github.io/CHEERSafe/" target="_blank">Docs</a>), a parallelized Python library (11K lines, 500+ tests) estimating hurricane wind and flood losses for 1.15M single-family homes in 45 North Carolina counties; damage-library generation runs 65&times; faster on 112 cores.</li>
+        <li>Built a linear-programming calibration (Gurobi) that assigns annual probabilities to 932 hurricane scenarios to match 5,400 ASCE 7 wind targets and FEMA flood-zone targets for the NSF CoPe-CHEER project.</li>
+        <li>Implemented North Carolina&rsquo;s AI-driven building-inventory pipeline (5.65M buildings from FEMA, Microsoft, NSI, and parcel data) with a ViT roof-shape classifier (F1 0.92) and gradient-boosting imputation cutting structure-value error by 37%.</li>
+        <li>Co-first author of RAPID-A (<em>ASCE OPEN</em>, 2025), an uncertainty-aware ensemble of deep segmentation models that assesses post-earthquake building damage from satellite images of the 2023 T&uuml;rkiye earthquakes and generalizes to unseen cities.</li>
+        <li>Co-developed an XGBoost claim-occurrence model (736K building&ndash;hurricane observations, 4 hurricanes) that cut total claim-count error to 5.6% from 42.1% with logistic regression on held-out data; 2nd author, <em>Natural Hazards</em> (2026).</li>
+        <li>Developed transformer-based NLP and ML techniques for PII removal and text classification of damage descriptions for the North Carolina Insurance Underwriting Association (NCIUA).</li>
+        <li>Rebuilt ground-motion record selection in JAX as a GPU-resident greedy search: 2,000&times;+ faster than the legacy OpenCL tool (<a href="https://github.com/NHR3-UCLA/gmsm_multiple_target_spectra" target="_blank">GitHub</a>) (122 s &rarr; 0.06 s for 200 records) with equal or better mean-spectrum fit.</li>
+        </ul>
+    </div>
+    <div class="cv-timeline-item">
+        <h4>Opal AI <span class="cv-tag">Machine Learning Engineer (Volunteer)</span></h4>
+        <p class="cv-meta">Oct 2024 &ndash; Jan 2025 &bull; Los Angeles, CA</p>
+        <ul>
+        <li>Developed an <em>agentic</em> Vision&ndash;Language Model (VLM) pipeline (LangChain, Google Cloud Vertex AI) turning site-captured video into structured claims-inspection reports for Astro Adjuster (<a href="https://www.opal-ai.com/astro-adjuster" target="_blank">Link</a>), which cuts claims reporting from hours to minutes.</li>
+        <li>Engineered a retrieval-augmented generation (RAG) stack with LlamaIndex (vector indexing, chunking, semantic retrieval) delivering citation-grounded Q&amp;A over the generated reports.</li>
+        <li>Contributed as an ML engineer to Opal AI&rsquo;s winning NASA SBIR Ignite Phase I proposal for <em>FireGPT</em>, a vision&ndash;language model for prescribed-burn decision support ($166K Phase I; $1.27M follow-on Phase II) (<a href="https://www.opal-ai.com/post/nasa-awards-opalai-1m-to-transform-wildfire-intelligence-with-multimodal-ai-systems" target="_blank">Link</a>).</li>
         </ul>
     </div>
 </div>
 </section>
 <hr />
 
-<!-- Course Projects -->
+<!-- Projects -->
 <section>
-<h3 class="cv-section-title"><i class="fas fa-flask"></i> Course Projects (Selected)</h3>
+<h3 class="cv-section-title"><i class="fas fa-flask"></i> Projects (Selected)</h3>
 <div class="cv-timeline">
     <div class="cv-timeline-item">
-        <h4>Graduate-level</h4>
+        <h4>Overleaf Web MCP <span class="cv-tag">Open source</span></h4>
+        <p class="cv-meta">TypeScript, Node.js &bull; <a href="https://github.com/mhmdaskari/overleaf-web-mcp" target="_blank">GitHub</a></p>
+        <ul>
+        <li>Built and shipped a Model Context Protocol (MCP) server with 31 tools that lets AI assistants (Claude Code, Codex, Cursor) read, edit, compile, and review Overleaf projects through the user&rsquo;s own session; 2.3K+ npm downloads in three months.</li>
+        <li>Engineered safeguards for agent-driven edits: revision-checked writes, tracked changes, and plan-then-confirm folder sync.</li>
+        </ul>
+    </div>
+    <div class="cv-timeline-item">
+        <h4>Proper Scoring Rules to Reduce LLM Overconfidence <span class="cv-tag">Course project</span></h4>
+        <p class="cv-meta">Python, LLM evaluation &bull; <a href="https://github.com/mhmdaskari/llm-confidence-scoring" target="_blank">GitHub</a></p>
+        <ul>
+        <li>Demonstrated that stating the logarithmic scoring rule in the prompt curbs DeepSeek-V4-Flash&rsquo;s overconfidence: +0.54 nats in log score on MMLU and +1.49 on MMLU-Pro (1,000 questions each) at negligible accuracy cost.</li>
+        </ul>
+    </div>
+    <div class="cv-timeline-item">
+        <h4>Causal Reasoning Agent <span class="cv-tag">Course project, team of 4</span></h4>
+        <p class="cv-meta">Python &bull; <a href="https://github.com/k-oconnor/causal_reasoning_agent" target="_blank">GitHub</a></p>
+        <ul>
+        <li>Co-developed an LLM-agnostic agent framework with Kripke epistemic reasoning; built its Mastermind and 2048 environments, evaluation runners, and a decision-trace dashboard.</li>
+        </ul>
+    </div>
+    <div class="cv-timeline-item">
+        <h4>Other graduate course projects</h4>
         <ul>
         <li>Built an efficient ML pipeline that optimizes XGBoost hyperparameters via experimental design techniques, outperforming grid search in predicting wildfire damage to buildings. <span class="cv-advisor">Advisor: Prof. Hongquan Xu</span></li>
         <li>Implemented Deep Q-learning with experience replay (DQN) and Deep Deterministic Policy Gradient (DDPG) reinforcement learning algorithms for Racing Car and Double Pendulum problems. <span class="cv-advisor">Advisor: Prof. Jonathan Kao</span></li>
@@ -64,8 +96,12 @@
     <div class="cv-skill-group">
         <span class="cv-skill-label">Languages</span>
         <span class="cv-badge">Python</span>
-        <span class="cv-badge">R</span>
         <span class="cv-badge">C++</span>
+        <span class="cv-badge">R</span>
+        <span class="cv-badge">TypeScript</span>
+        <span class="cv-badge">SQL</span>
+        <span class="cv-badge">Bash</span>
+        <span class="cv-badge">MATLAB</span>
     </div>
     <div class="cv-skill-group">
         <span class="cv-skill-label">ML &amp; DL</span>
@@ -74,19 +110,26 @@
         <span class="cv-badge">TensorFlow</span>
         <span class="cv-badge">Keras</span>
         <span class="cv-badge">Scikit-learn</span>
-        <span class="cv-badge">Transformers</span>
-        <span class="cv-badge">LangChain</span>
+        <span class="cv-badge">XGBoost</span>
+        <span class="cv-badge">Hugging Face Transformers</span>
         <span class="cv-badge">spaCy</span>
+    </div>
+    <div class="cv-skill-group">
+        <span class="cv-skill-label">LLMs &amp; Agents</span>
+        <span class="cv-badge">LangChain</span>
+        <span class="cv-badge">LlamaIndex</span>
+        <span class="cv-badge">RAG</span>
+        <span class="cv-badge">MCP</span>
+        <span class="cv-badge">Google Cloud Vertex AI</span>
     </div>
     <div class="cv-skill-group">
         <span class="cv-skill-label">Tools</span>
         <span class="cv-badge">Git</span>
         <span class="cv-badge">GitHub</span>
         <span class="cv-badge">CI/CD</span>
-        <span class="cv-badge">SQL</span>
-        <span class="cv-badge">Bash</span>
-        <span class="cv-badge">MATLAB</span>
         <span class="cv-badge">Docker</span>
+        <span class="cv-badge">OpenCL</span>
+        <span class="cv-badge">Gurobi</span>
     </div>
 </div>
 </section>
@@ -250,10 +293,10 @@
         </div>
     </div>
     <div class="cv-row-item">
-        <span class="cv-row-date">Apr 2024</span>
+        <span class="cv-row-date">2024 &ndash; 2025</span>
         <div class="cv-row-body">
             <span class="cv-row-venue">LA Hacks</span>
-            <p>Expert judgment for the Los Angeles AI Hackathon event</p>
+            <p>Expert judge for the LA Hacks hackathon</p>
         </div>
     </div>
     <div class="cv-row-item">
